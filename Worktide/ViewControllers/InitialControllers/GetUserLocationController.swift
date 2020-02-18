@@ -10,9 +10,12 @@ import Foundation
 import UIKit
 import MapKit
 import GooglePlaces
+import FirebaseAuth
+import FirebaseFirestore
 
 class GetUserLocationController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    var shouldShowAppointmentsController = false
     
     let googleAutoCompeteApi = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&types=address&location=%@,%@&radius=5000&language=en&key=%@&components=country:ca"
     var arrPlaces = NSMutableArray(capacity: 100)
@@ -161,7 +164,7 @@ class GetUserLocationController:UIViewController, UITableViewDelegate, UITableVi
             delegate?.changeUsersAddress(usersAddress: selectedAddress)
             self.dismiss(animated: true, completion: nil)
         } else {
-            self.showMainViewController()
+            self.shouldAppointmentController()
         }
     }
     
@@ -287,8 +290,33 @@ class GetUserLocationController:UIViewController, UITableViewDelegate, UITableVi
         self.view.layer.insertSublayer(gradientLayer, at:0)
     }
     
+    func shouldAppointmentController(){
+        guard let userID = Auth.auth().currentUser?.uid else {
+            self.showMainViewController()
+            return
+        }
+        
+        let db = Firestore.firestore()
+        db.collection("Services").whereField("creatorID", isEqualTo: userID).getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    if querySnapshot?.count == 0 {
+                        self.shouldShowAppointmentsController = false
+                    } else{
+                        self.shouldShowAppointmentsController = true
+                    }
+                    
+                    self.showMainViewController()
+                    
+                    
+                }
+        }
+    }
+    
     func showMainViewController(){
         let tabBarController = TabBarController()
+        tabBarController.shouldShowAppointmentsController = shouldShowAppointmentsController
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         appdelegate.window!.rootViewController = tabBarController
         

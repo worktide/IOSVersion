@@ -424,7 +424,7 @@ class MainViewController:UITableViewController, CLLocationManagerDelegate,UITabB
             
             let fullName = document.get("usersName") as? String
             let fullNameArr = fullName!.components(separatedBy: " ")
-            self.usersDisplayMessage = "What can we we help you with today, \(fullNameArr[0])?"
+            self.usersDisplayMessage = "What can we help you with today, \(fullNameArr[0])?"
             self.updateTableView()
             
         }

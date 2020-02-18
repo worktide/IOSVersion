@@ -8,13 +8,18 @@
 
 import UIKit
 import MapKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class TabBarController:UITabBarController{
     
     //let locationManager = CLLocationManager()
     
+    var shouldShowAppointmentsController = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addAuthStateChangeListener()
         setupViewControllers()
         showWhatsNew()
         
@@ -22,7 +27,7 @@ class TabBarController:UITabBarController{
     
     func setupViewControllers(){
         let mainViewController = MainViewController()
-        let appointmentsController = AppointmentsViewController(collectionViewLayout:UICollectionViewFlowLayout())
+        let appointmentsController = AppointmentsViewController()
         let profileController = ProfileController(collectionViewLayout:UICollectionViewFlowLayout())
         //add search controller in the future
         
@@ -34,8 +39,57 @@ class TabBarController:UITabBarController{
         appointmentsNavigationController.tabBarItem = UITabBarItem(title: "Appointments", image: UIImage(named: "appointmentsIconTabBar")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "appointmentsIconTabBar"))
         profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profileTabBarIcon")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "profileTabBarIcon"))
         
-        viewControllers = [mainViewNavigationController, appointmentsNavigationController, profileNavigationController]
+        if shouldShowAppointmentsController {
+            viewControllers = [mainViewNavigationController, appointmentsNavigationController, profileNavigationController]
+        } else {
+            viewControllers = [mainViewNavigationController, profileNavigationController]
+        }
         
+        
+    }
+    
+    func addAuthStateChangeListener(){
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if(auth.currentUser == nil){
+                if(self.viewControllers?.count == 3){
+                    self.viewControllers?.remove(at: 1)
+                }
+            } else {
+                self.shouldAppointmentController()
+            }
+        }
+    }
+    
+    func shouldAppointmentController(){
+        guard let userID = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let db = Firestore.firestore()
+        db.collection("Services").whereField("creatorID", isEqualTo: userID).addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
+            }
+            
+            if documents.count == 0 {
+                if(self.viewControllers?.count == 3){
+                    self.viewControllers?.remove(at: 1)
+                }
+            } else {
+                if(self.viewControllers?.count == 2){
+                    self.showAppointmentsController()
+                }
+                
+            }
+        }
+    }
+    
+    func showAppointmentsController(){
+        let appointmentsController = AppointmentsViewController()
+        let appointmentsNavigationController = UINavigationController(rootViewController: appointmentsController)
+        appointmentsNavigationController.tabBarItem = UITabBarItem(title: "Appointments", image: UIImage(named: "appointmentsIconTabBar")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "appointmentsIconTabBar"))
+        self.viewControllers?.insert(appointmentsNavigationController, at: 1)
     }
     
     func showWhatsNew(){

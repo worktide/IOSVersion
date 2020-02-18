@@ -195,9 +195,6 @@ extension Date {
         return days1 - days2
     }
 
-    func hasSame(_ component: Calendar.Component, as date: Date) -> Bool {
-        return self.compare(with: date, only: component) == 0
-    }
 }
 
 

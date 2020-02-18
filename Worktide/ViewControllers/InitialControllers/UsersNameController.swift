@@ -13,6 +13,8 @@ import FirebaseFirestore
 
 class UsersNameController: UIViewController{
     
+    var shouldShowAppointmentsController = false
+    
     public let nameTitle: UILabel = {
         let textView = UILabel()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -134,7 +136,7 @@ class UsersNameController: UIViewController{
                 if err != nil {
                     self.showAlert()
                 } else {
-                    self.showMainViewController()
+                    self.shouldAppointmentController()
                 }
             }
         } else{
@@ -143,8 +145,33 @@ class UsersNameController: UIViewController{
         
     }
     
+    func shouldAppointmentController(){
+        guard let userID = Auth.auth().currentUser?.uid else {
+            self.showMainViewController()
+            return
+        }
+        
+        let db = Firestore.firestore()
+        db.collection("Services").whereField("creatorID", isEqualTo: userID).getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    if querySnapshot?.count == 0 {
+                        self.shouldShowAppointmentsController = false
+                    } else{
+                        self.shouldShowAppointmentsController = true
+                    }
+                    
+                    self.showMainViewController()
+                    
+                    
+                }
+        }
+    }
+    
     func showMainViewController(){
         let tabBarController = TabBarController()
+        tabBarController.shouldShowAppointmentsController = shouldShowAppointmentsController
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         appdelegate.window!.rootViewController = tabBarController
         

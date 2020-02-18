@@ -24,7 +24,6 @@ class AppointmentsModel:NSObject{
     var bookingID:String?
     var customerID:String?
     
-    
     init(serviceTitle:String?, servicePrice: String?, startDate:Date?, otherName:String?, userImage:UIImage?, circleRadius:Double, latitude:Double, longitude: Double, usersPhoneNumber:String?, bookingID:String?, customerID:String?){
         super.init()
         self.serviceTitle = serviceTitle
@@ -40,7 +39,7 @@ class AppointmentsModel:NSObject{
         self.customerID = customerID
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, MMM dd @ hh:mm a"
+        formatter.dateFormat = "hh:mm a"
         self.serviceDateDisplay = formatter.string(from: startDate!)
         
     }

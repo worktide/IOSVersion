@@ -15,6 +15,7 @@ class VerifyPhoneNumberController:UIViewController{
     
     var keyboardHeight:CGFloat = 0
     var shouldDismissController = false
+    var shouldShowAppointmentsController = false
     
     private let phoneNumberText: UILabel = {
         let textView = UILabel()
@@ -218,7 +219,7 @@ class VerifyPhoneNumberController:UIViewController{
                 if(usersName == nil){
                     self.showNameController()
                 } else {
-                    self.showMainViewController()
+                    self.shouldAppointmentController()
                 }
             } else {
                 self.showNameController()
@@ -226,8 +227,33 @@ class VerifyPhoneNumberController:UIViewController{
         }
     }
     
+    func shouldAppointmentController(){
+        guard let userID = Auth.auth().currentUser?.uid else {
+            self.showMainViewController()
+            return
+        }
+        
+        let db = Firestore.firestore()
+        db.collection("Services").whereField("creatorID", isEqualTo: userID).getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    if querySnapshot?.count == 0 {
+                        self.shouldShowAppointmentsController = false
+                    } else{
+                        self.shouldShowAppointmentsController = true
+                    }
+                    
+                    self.showMainViewController()
+                    
+                    
+                }
+        }
+    }
+    
     func showMainViewController(){
         let tabBarController = TabBarController()
+        tabBarController.shouldShowAppointmentsController = shouldShowAppointmentsController
         
         if(shouldDismissController){
             self.dismiss(animated: true, completion: nil)

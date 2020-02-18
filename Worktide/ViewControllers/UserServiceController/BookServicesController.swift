@@ -148,7 +148,7 @@ class BookServicesController: UICollectionViewController, UICollectionViewDelega
                                 let timeStamp = document.get("breakArray") as! [Timestamp]
                                 for time in timeStamp{
                                     let breakDay = time.dateValue()
-                                    availableDates = availableDates.filter({!$0.hasSame(.day, as: breakDay)})
+                                    availableDates = availableDates.filter({!Calendar.current.isDate($0, inSameDayAs: breakDay)})
                                 }
                                 if (document.get("breakPermanent") as! Bool){
                                     self.isUserOnBreak = true

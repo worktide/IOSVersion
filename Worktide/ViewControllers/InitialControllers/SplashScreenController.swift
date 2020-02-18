@@ -13,6 +13,8 @@ import MapKit
 
 class SplashScreenController: UIViewController, CLLocationManagerDelegate {
     
+    var shouldShowAppointmentsController = false
+    
     let imageView:UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "Icon"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -73,6 +75,7 @@ class SplashScreenController: UIViewController, CLLocationManagerDelegate {
                 self.showLoginScreen()
             } else {
                 self.showMainViewController()
+                self.shouldShowAppointmentsController = false
             }
         }
     }
@@ -89,11 +92,35 @@ class SplashScreenController: UIViewController, CLLocationManagerDelegate {
                 if(usersName == nil){
                     self.showNameController()
                 } else {
-                    self.showMainViewController()
+                    self.shouldAppointmentController()
                 }
             } else {
                 self.showNameController()
             }
+        }
+    }
+    
+    func shouldAppointmentController(){
+        guard let userID = Auth.auth().currentUser?.uid else {
+            self.showMainViewController()
+            return
+        }
+        
+        let db = Firestore.firestore()
+        db.collection("Services").whereField("creatorID", isEqualTo: userID).getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    if querySnapshot?.count == 0 {
+                        self.shouldShowAppointmentsController = false
+                    } else{
+                        self.shouldShowAppointmentsController = true
+                    }
+                    
+                    self.showMainViewController()
+                    
+                    
+                }
         }
     }
     
@@ -107,6 +134,7 @@ class SplashScreenController: UIViewController, CLLocationManagerDelegate {
 
     func showMainViewController(){
         let tabBarController = TabBarController()
+        tabBarController.shouldShowAppointmentsController = shouldShowAppointmentsController
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         appdelegate.window!.rootViewController = tabBarController
         

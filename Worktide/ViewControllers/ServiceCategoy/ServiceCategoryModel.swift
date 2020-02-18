@@ -55,30 +55,12 @@ class ServiceCategoryModel:NSObject{
             }
         }
         
-        //change string of time
-        let time = minutesToHoursMinutes(minutes: duration!)
-        let hour = time.hours
-        let minutes = time.leftMinutes
-        //set text
-        if(hour == 0){
-            self.duration = String(minutes) + " min"
-        } else {
-            if(hour == 1){
-                self.duration = String(hour) + " hour " + String(minutes) + " min"
-            } else {
-                self.duration = String(hour) + " hours " + String(minutes) + " min"
-            }
-        }
+        self.duration = duration?.minutesToWords()
         
         self.creatorName = creatorName
         self.creatorImage = creatorImage
         
     }
-    
-    func minutesToHoursMinutes (minutes : Int) -> (hours : Int , leftMinutes : Int) {
-        return (minutes / 60, (minutes % 60))
-    }
-    
     
 
 }

@@ -319,7 +319,7 @@ class ViewAppointmentController:UIViewController, GMSMapViewDelegate, MFMailComp
             
         }))
         
-    alert.addAction(UIAlertAction(title: "Text \(self.usersPhoneNumber!)", style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: "Text \(self.usersPhoneNumber!)", style: .default, handler: { (_) in
              if (MFMessageComposeViewController.canSendText()) {
                 let phoneNumber = self.usersPhoneNumber.filter("0123456789.".contains)
                 let controller = MFMessageComposeViewController()

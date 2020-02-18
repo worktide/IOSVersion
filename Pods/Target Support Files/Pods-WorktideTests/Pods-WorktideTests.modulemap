@@ -1,0 +1,6 @@
+framework module Pods_WorktideTests {
+  umbrella header "Pods-WorktideTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
