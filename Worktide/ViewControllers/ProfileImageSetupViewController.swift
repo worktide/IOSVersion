@@ -20,7 +20,7 @@ class ProfileImageSetupViewController: UIViewController {
     private let text: UILabel = {
         let text = UILabel()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.text = "Add Your Profile Picture Here"
+        text.text = ""
         text.textColor = .black
         return text
     }()
