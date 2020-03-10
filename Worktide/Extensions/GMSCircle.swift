@@ -1,8 +1,8 @@
 //
-//  GMSMapViewZoom.swift
+//  GMSCircle.swift
 //  Worktide
 //
-//  Created by Kristofer Huang on 2020-01-10.
+//  Created by Kristofer Huang on 2020-03-04.
 //  Copyright © 2020 Kristofer Huang. All rights reserved.
 //
 
@@ -22,3 +22,6 @@ extension GMSCircle {
                                coordinate: locationMinMax(false))
     }
 }
+
+
+

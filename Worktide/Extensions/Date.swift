@@ -194,6 +194,17 @@ extension Date {
         let days2 = Calendar.current.component(component, from: date)
         return days1 - days2
     }
+    
+    var startOfDay: Date {
+        return Calendar.current.startOfDay(for: self)
+    }
+
+    var endOfDay: Date {
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        return Calendar.current.date(byAdding: components, to: startOfDay)!
+    }
 
 }
 

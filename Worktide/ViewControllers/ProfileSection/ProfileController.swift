@@ -36,7 +36,7 @@ class ProfileController:UICollectionViewController, UICollectionViewDelegateFlow
     var ratingStarAmountText = " "
     
     private let notLoggedInImage:UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "createServiceIcon"))
+        let imageView = UIImageView(image: UIImage(named: "peopleIcon"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -125,7 +125,6 @@ class ProfileController:UICollectionViewController, UICollectionViewDelegateFlow
         }
         
         let allData = [SettingsOptionModel(optionsTitle: "Create a Service", optionsImage: "createServiceIcon"),
-                       SettingsOptionModel(optionsTitle: "My Availability", optionsImage: "timeIcon"),
                        SettingsOptionModel(optionsTitle: "Share App", optionsImage: "shareIcon"),
                        SettingsOptionModel(optionsTitle: "Support", optionsImage: "supportIcon"),
                        SettingsOptionModel(optionsTitle: "Logout", optionsImage: "none")]
@@ -152,7 +151,7 @@ class ProfileController:UICollectionViewController, UICollectionViewDelegateFlow
             cell.settingsImage.image = UIImage(named: category.optionsImage!)
             
             switch indexPath.row {
-            case 4:
+            case 3:
                 cell.settingsTitle.textColor = .red
             default:
                 cell.settingsTitle.textColor = .black
@@ -179,30 +178,10 @@ class ProfileController:UICollectionViewController, UICollectionViewDelegateFlow
         case 1:
             switch indexPath.row {
             case 0:
-                if CLLocationManager.locationServicesEnabled() {
-                     switch CLLocationManager.authorizationStatus() {
-                        case .notDetermined, .restricted, .denied:
-                            self.openEnableLocationController()
-                        case .authorizedAlways, .authorizedWhenInUse:
-                            let viewController = CreateServiceController()
-                            let navigationController = UINavigationController(rootViewController: viewController)
-                            navigationController.modalPresentationStyle = .overFullScreen
-                            self.present(navigationController, animated: true)
-                     @unknown default:
-                        self.openEnableLocationController()
-                    }
-                    } else {
-                    self.openEnableLocationController()
-                }
-                
+                openCreateServiceController()
             case 1:
-                let viewController = DaysAvailabilityController()
-                let navigationController = UINavigationController(rootViewController: viewController)
-                navigationController.modalPresentationStyle = .overFullScreen
-                self.present(navigationController, animated: true)
-            case 2:
                 shareApp()
-            case 3:
+            case 2:
                 sendEmail()
             default:
                 logout()
@@ -302,7 +281,7 @@ class ProfileController:UICollectionViewController, UICollectionViewDelegateFlow
         if(indexPath.section == 0){
             return CGSize(width: self.view.frame.width, height: 90)
         } else {
-            return CGSize(width: self.view.frame.width, height: 60)
+            return CGSize(width: self.view.frame.width, height: 50)
         }
     }
     
@@ -475,12 +454,16 @@ class ProfileController:UICollectionViewController, UICollectionViewDelegateFlow
         self.present(navigationController, animated: true)
     }
     
-    private lazy var openCreateServiceController: Void = {
-        let viewController = CreateServiceController()
+    func openCreateServiceController(){
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 0
+        let viewController = CreateServiceController(collectionViewLayout: flowLayout)
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .overFullScreen
         self.present(navigationController, animated: true)
-    }()
+    }
     
     func changeName(){
         let alert = UIAlertController(title: "Change Name", message: nil, preferredStyle: .alert)
@@ -512,9 +495,6 @@ class ProfileController:UICollectionViewController, UICollectionViewDelegateFlow
         let storageRef = Storage.storage().reference().child("usersPhoto").child("\(userID).jpg")
         
         storageRef.putData((image.resizeWithWidth(width: 150)?.pngData())!, metadata: nil, completion: { (metadata, error) in
-
-            self.removeSpinner()
-                
             // Fetch the download URL
             storageRef.downloadURL { url, error in
                 if error != nil {
@@ -529,6 +509,8 @@ class ProfileController:UICollectionViewController, UICollectionViewDelegateFlow
                     db.collection("Users").document(userID).updateData(values as [String : AnyObject])
                 }
             }
+            self.removeSpinner()
+                
         })
         
 

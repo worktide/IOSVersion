@@ -28,30 +28,46 @@ class TabBarController:UITabBarController{
     func setupViewControllers(){
         let mainViewController = MainViewController()
         let appointmentsController = AppointmentsViewController()
+        let notificationController = NotificationController()
         let profileController = ProfileController(collectionViewLayout:UICollectionViewFlowLayout())
         //add search controller in the future
         
         let mainViewNavigationController = UINavigationController(rootViewController: mainViewController)
+        let notificationNavigationController = UINavigationController(rootViewController: notificationController)
         let appointmentsNavigationController = UINavigationController(rootViewController: appointmentsController)
         let profileNavigationController = UINavigationController(rootViewController: profileController)
         
-        mainViewNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "homeIconTabBar")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "homeIconTabBar"))
-        appointmentsNavigationController.tabBarItem = UITabBarItem(title: "Appointments", image: UIImage(named: "appointmentsIconTabBar")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "appointmentsIconTabBar"))
-        profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profileTabBarIcon")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "profileTabBarIcon"))
+        let mainViewTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "homeIconTabBar")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "homeIconTabBar"))
+        mainViewTabBarItem.imageInsets = UIEdgeInsets(top: 9, left: 0, bottom: -9, right: 0)
+
+        let appointmentsTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "appointmentsIconTabBar")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "appointmentsIconTabBar"))
+        appointmentsTabBarItem.imageInsets = UIEdgeInsets(top: 9, left: 0, bottom: -9, right: 0)
+        
+        let notificationTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "notificationTabBarcon")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "notificationTabBarcon"))
+        notificationTabBarItem.imageInsets = UIEdgeInsets(top: 9, left: 0, bottom: -9, right: 0)
+        
+        let profileTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "profileTabBarIcon")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "profileTabBarIcon"))
+        profileTabBarItem.imageInsets = UIEdgeInsets(top: 9, left: 0, bottom: -9, right: 0)
+        
+        mainViewNavigationController.tabBarItem = mainViewTabBarItem
+        appointmentsNavigationController.tabBarItem = appointmentsTabBarItem
+        notificationNavigationController.tabBarItem = notificationTabBarItem
+        profileNavigationController.tabBarItem = profileTabBarItem
         
         if shouldShowAppointmentsController {
-            viewControllers = [mainViewNavigationController, appointmentsNavigationController, profileNavigationController]
+            viewControllers = [mainViewNavigationController, appointmentsNavigationController, notificationNavigationController, profileNavigationController]
         } else {
-            viewControllers = [mainViewNavigationController, profileNavigationController]
+            viewControllers = [mainViewNavigationController, notificationNavigationController,profileNavigationController]
         }
         
+        viewControllers = [mainViewNavigationController, appointmentsNavigationController, notificationNavigationController, profileNavigationController]
         
     }
     
     func addAuthStateChangeListener(){
         Auth.auth().addStateDidChangeListener { auth, user in
             if(auth.currentUser == nil){
-                if(self.viewControllers?.count == 3){
+                if(self.viewControllers?.count == 4){
                     self.viewControllers?.remove(at: 1)
                 }
             } else {
@@ -73,11 +89,11 @@ class TabBarController:UITabBarController{
             }
             
             if documents.count == 0 {
-                if(self.viewControllers?.count == 3){
+                if(self.viewControllers?.count == 4){
                     self.viewControllers?.remove(at: 1)
                 }
             } else {
-                if(self.viewControllers?.count == 2){
+                if(self.viewControllers?.count == 3){
                     self.showAppointmentsController()
                 }
                 
@@ -88,7 +104,10 @@ class TabBarController:UITabBarController{
     func showAppointmentsController(){
         let appointmentsController = AppointmentsViewController()
         let appointmentsNavigationController = UINavigationController(rootViewController: appointmentsController)
-        appointmentsNavigationController.tabBarItem = UITabBarItem(title: "Appointments", image: UIImage(named: "appointmentsIconTabBar")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "appointmentsIconTabBar"))
+        let appointmentsTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "appointmentsIconTabBar")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "appointmentsIconTabBar"))
+        appointmentsTabBarItem.imageInsets = UIEdgeInsets(top: 9, left: 0, bottom: -9, right: 0)
+        
+        appointmentsNavigationController.tabBarItem = appointmentsTabBarItem
         self.viewControllers?.insert(appointmentsNavigationController, at: 1)
     }
     

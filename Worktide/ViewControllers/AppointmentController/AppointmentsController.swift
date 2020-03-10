@@ -76,11 +76,12 @@ class AppointmentsController:UICollectionViewController, UICollectionViewDelegat
         
         if(model.otherUserImage == nil){
             cell.userProfileImage.removeAllSubviews()
-            cell.name = model.otherName
             cell.userProfileImage.image = UIImage(named: "lightBlueBackground")
+            
+            let initials = model.otherName!.initials
+            cell.userProfileImage.addInitials(initial:initials, textSize: 18)
         } else {
             cell.userProfileImage.removeAllSubviews()
-            cell.name = nil
             cell.userProfileImage.image = model.otherUserImage
         }
         return cell

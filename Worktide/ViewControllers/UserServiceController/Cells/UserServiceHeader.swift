@@ -11,8 +11,6 @@ import HCSStarRatingView
 
 class UserSerivceHeader: UICollectionReusableView {
     
-    var name:String!
-    
     public let mainStackView:UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -155,15 +153,6 @@ class UserSerivceHeader: UICollectionReusableView {
         self.layoutIfNeeded()
         userProfileImage.layer.cornerRadius = userProfileImage.frame.height / 2.0
         userProfileImage.clipsToBounds = true
-        
-        if(name != nil){
-            let fullNameArr = name.components(separatedBy: " ")
-            if(fullNameArr.count == 1){
-                userProfileImage.addInitials(first: fullNameArr[0].first!.description, second: "", textSize: 30)
-            } else if (fullNameArr.count > 1){
-                userProfileImage.addInitials(first: fullNameArr[0].first!.description, second: fullNameArr[1].first!.description, textSize: 30)
-            }
-        } 
     }
     
     required init?(coder: NSCoder) {

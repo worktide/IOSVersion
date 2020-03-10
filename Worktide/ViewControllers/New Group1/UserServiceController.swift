@@ -191,8 +191,8 @@ class UserServiceController:UICollectionViewController, UICollectionViewDelegate
             
             //set up image
             if(usersPhoto == UIImage()){
-                headerView.name = self.title!
-                
+                let initials = self.title!.initials
+                headerView.userProfileImage.addInitials(initial:initials, textSize: 30)
             } else {
                 headerView.userProfileImage.removeAllSubviews()
                 headerView.userProfileImage.image = usersPhoto

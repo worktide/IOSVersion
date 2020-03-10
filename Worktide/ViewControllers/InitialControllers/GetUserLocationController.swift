@@ -23,7 +23,10 @@ class GetUserLocationController:UIViewController, UITableViewDelegate, UITableVi
     let googleServerkey = "AIzaSyDaJzlSVSsjbL0u3SvAZ5azlCQVrEifklo"
     
     var fromMainViewController = false
+    var fromServiceLocation = false
     var delegate: MainViewControllerDelegate?
+    var sendStringDelegate: SendStringDataDelegate?
+    
     
     public let backButton: UIImageView = {
         let tintedImage = UIImage(named: "backIconBlack")!.withRenderingMode(.alwaysTemplate)
@@ -61,7 +64,6 @@ class GetUserLocationController:UIViewController, UITableViewDelegate, UITableVi
         textField.backgroundColor = .white
         textField.layer.borderWidth = 2
         textField.layer.borderColor = UIColor.white.cgColor
-        textField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         textField.layer.cornerRadius = 10
         textField.textAlignment = NSTextAlignment.center
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
@@ -122,7 +124,7 @@ class GetUserLocationController:UIViewController, UITableViewDelegate, UITableVi
         tableView.heightAnchor.constraint(equalToConstant: 500).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
-        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0).isActive = true
+        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 15).isActive = true
     }
     
     func setupTableView(){
@@ -149,22 +151,35 @@ class GetUserLocationController:UIViewController, UITableViewDelegate, UITableVi
         switch indexPath.row {
         case arrPlaces.count - 1:
             cell.layer.cornerRadius = 10
+            cell.lineBelow.isHidden = false
             cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        case 0:
+            cell.layer.cornerRadius = 10
+            cell.lineBelow.isHidden = true
+            cell.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         default:
             cell.layer.masksToBounds = false
+            cell.layer.cornerRadius = 0
+            cell.lineBelow.isHidden = false
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedAddress = arrPlaces[indexPath.row] as! String
-        UserDefaults.standard.set(selectedAddress, forKey: "usersAddress")
         
-        if(fromMainViewController){
-            delegate?.changeUsersAddress(usersAddress: selectedAddress)
-            self.dismiss(animated: true, completion: nil)
+        if(fromServiceLocation){
+            sendStringDelegate?.sendStringData(stringArray: [selectedAddress])
+            self.dismiss(animated: true, completion:nil)
         } else {
-            self.shouldAppointmentController()
+            UserDefaults.standard.set(selectedAddress, forKey: "usersAddress")
+            
+            if(fromMainViewController){
+                delegate?.changeUsersAddress(usersAddress: selectedAddress)
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.shouldAppointmentController()
+            }
         }
     }
     

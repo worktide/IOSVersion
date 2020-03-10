@@ -256,9 +256,9 @@ class DaysAvailabilityController:UITableViewController{
             availabilityModelArray.sort(by: {
                 (daysOfWeekArray.firstIndex(of: $0.dayOfWeek!) ?? Int.max) < (daysOfWeekArray.firstIndex(of: $1.dayOfWeek!) ?? Int.max)})
             
-            let viewController = TimeAvailabilityController()
-            viewController.availabilityModelArray = availabilityModelArray
-            self.navigationController?.pushViewController(viewController, animated: true)
+            //let viewController = TimeAvailabilityController()
+            //viewController.availabilityModelArray = availabilityModelArray
+            //self.navigationController?.pushViewController(viewController, animated: true)
         default:
             break
         }

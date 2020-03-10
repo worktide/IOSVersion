@@ -20,11 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        //let loginController = SplashScreenController(nibName: nil, bundle: nil)
-        //let navigationController = UINavigationController(rootViewController: loginController)
+        let loginController = SplashScreenController(nibName: nil, bundle: nil)
+        let navigationController = UINavigationController(rootViewController: loginController)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window!.rootViewController = ProfileImageSetupViewController() //navigationController
+        self.window!.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
         
         GMSServices.provideAPIKey("AIzaSyDaJzlSVSsjbL0u3SvAZ5azlCQVrEifklo")

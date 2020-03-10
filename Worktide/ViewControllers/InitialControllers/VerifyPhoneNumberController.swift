@@ -217,19 +217,19 @@ class VerifyPhoneNumberController:UIViewController{
             if let document = document, document.exists {
                 let usersName = document.get("usersName")
                 if(usersName == nil){
-                    self.showNameController()
+                    HelperViewTransitions.showUsersNameController(self.navigationController)
                 } else {
                     self.shouldAppointmentController()
                 }
             } else {
-                self.showNameController()
+                HelperViewTransitions.showUsersNameController(self.navigationController)
             }
         }
     }
     
     func shouldAppointmentController(){
         guard let userID = Auth.auth().currentUser?.uid else {
-            self.showMainViewController()
+            HelperViewTransitions.showMainViewController(self.shouldShowAppointmentsController, self)
             return
         }
         
@@ -244,39 +244,15 @@ class VerifyPhoneNumberController:UIViewController{
                         self.shouldShowAppointmentsController = true
                     }
                     
-                    self.showMainViewController()
+                    if(self.shouldDismissController){
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        HelperViewTransitions.showMainViewController(self.shouldShowAppointmentsController, self)
+                    }
                     
                     
                 }
         }
-    }
-    
-    func showMainViewController(){
-        let tabBarController = TabBarController()
-        tabBarController.shouldShowAppointmentsController = shouldShowAppointmentsController
-        
-        if(shouldDismissController){
-            self.dismiss(animated: true, completion: nil)
-        } else {
-            let appdelegate = UIApplication.shared.delegate as! AppDelegate
-            appdelegate.window!.rootViewController = tabBarController
-            
-            let options: UIView.AnimationOptions = .transitionCrossDissolve
-            let duration: TimeInterval = 0.3
-            UIView.transition(with: appdelegate.window!, duration: duration, options: options, animations: {}, completion:
-            { completed in
-            })
-        }
-        
-        
-    }
-    
-    func showNameController(){
-        let viewController = UsersNameController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .overFullScreen
-        navigationController.modalTransitionStyle = .crossDissolve
-        self.navigationController?.present(navigationController, animated: true, completion: nil)
     }
     
     

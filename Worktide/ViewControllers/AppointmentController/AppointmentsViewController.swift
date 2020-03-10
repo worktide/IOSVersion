@@ -18,10 +18,9 @@ class AppointmentsViewController:UITableViewController, AppointmentsDelegate, FS
     
     var appointmentsArray = [ServicerAppointmentsModel]()
     var arrayOfDatesWithBookings = [Date]()
-    var selectedDate = Date()
+    var selectedDate = Date().startOfDay
     
-    var doesUserHaveCalendar = false
-    var availableDates = [Date]()
+    var availableDates = [UserScheduleModel]()
     
     private let notLoggedInImage:UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "appointmentIcon"))
@@ -57,12 +56,15 @@ class AppointmentsViewController:UITableViewController, AppointmentsDelegate, FS
         getData()
         setupNavigationBar()
         setupTableView()
+        loadAppointmentsOfDate(selectedDate)
+        
     }
+    
     
     func setupNavigationBar(){
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.compose, target: self, action: #selector(menuButtonTapped(sender:)))
-        self.title = "Appointments"
+        self.navigationItem.title = "Appointment"
         
         
  
@@ -170,12 +172,73 @@ class AppointmentsViewController:UITableViewController, AppointmentsDelegate, FS
     //Calendar in CollectionView------------------------------------------------------------
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        loadAppointmentsOfDate(date)
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
+        for dates in availableDates {
+            if(Calendar.current.isDate(dates.startDate!, inSameDayAs: date)){
+                return .lightGray
+            }
+        }
+
+        return .clear
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+        for dates in arrayOfDatesWithBookings{
+            if(Calendar.current.isDate(dates, inSameDayAs:date) && date >= Date().startOfDay){
+                return .white
+            }
+        }
+        for dates in availableDates {
+            if(Calendar.current.isDate(dates.startDate!, inSameDayAs: date)){
+                return .black
+            }
+        }
+        return .lightGray
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
+        for dates in arrayOfDatesWithBookings{
+            if(Calendar.current.isDate(dates, inSameDayAs:date) && date >= Date().startOfDay){
+                return .black
+            }
+        }
+        return .clear
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         
-        /*let footerView = collectionView!.cellForItem(at: IndexPath(row: 0, section: 0)) as! AppointmentsLoadingView
-        footerView.loadView.isHidden = false
-        footerView.loadingText.isHidden = false
-        footerView.loadView.startAnimating()*/
+        for dates in arrayOfDatesWithBookings{
+            if(Calendar.current.isDate(dates, inSameDayAs:date) && date < Date().startOfDay){
+                return 1
+            }
+        }
         
+        return 0
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        return [UIColor.lightGray]
+    }
+    
+    
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        let maxedMonth = Calendar.current.date(byAdding: .month, value: 2, to: Date())!
+        return maxedMonth
+    }
+    
+    func minimumDate(for calendar: FSCalendar) -> Date {
+        let minMonth = Calendar.current.date(byAdding: .month, value: -4, to: Date())!
+        return minMonth
+    }
+    
+    
+    
+    //Data Management-------------------------------------------------------
+    
+    func loadAppointmentsOfDate(_ date:Date){
         selectedDate = date
         appointmentsArray.removeAll()
         let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: date)
@@ -206,8 +269,9 @@ class AppointmentsViewController:UITableViewController, AppointmentsDelegate, FS
                     if let document = document, document.exists {
                         let usersName = document.get("usersName") as! String
                         let usersPhoneNumber = document.get("usersPhoneNumber") as! String
+                        let photoURL = document.get("userPhotoURL") as? String
                         
-                        self.appointmentsArray.append(ServicerAppointmentsModel(bookingID: bookingID, serviceTitle: serviceTitle, otherName: usersName, otherPhoneNumber: usersPhoneNumber, servicePrice: servicePrice, startDate: startDate, endDate: endDate, serviceAddress: serviceAddress, location: CLLocation(latitude: latitude, longitude: longitude)))
+                        self.appointmentsArray.append(ServicerAppointmentsModel(tableView:self.tableView,bookingID: bookingID, serviceTitle: serviceTitle, otherName: usersName, otherPhoneNumber: usersPhoneNumber, servicePrice: servicePrice, startDate: startDate, endDate: endDate, serviceAddress: serviceAddress, location: CLLocation(latitude: latitude, longitude: longitude), userImageString: photoURL))
                         self.sortArray()
                         self.updateTableView()
                         
@@ -222,77 +286,12 @@ class AppointmentsViewController:UITableViewController, AppointmentsDelegate, FS
             }
             
         }
-        
-    
     }
     
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
-        for dates in availableDates {
-            if(Calendar.current.isDate(dates, inSameDayAs: date)){
-                return .lightGray
-            }
-        }
-
-        return .clear
-    }
-    
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
-        for dates in arrayOfDatesWithBookings{
-            if(Calendar.current.isDate(dates, inSameDayAs:date) && date > Date()){
-                return .white
-            }
-        }
-        for dates in availableDates {
-            if(Calendar.current.isDate(dates, inSameDayAs: date)){
-                return .black
-            }
-        }
-        return .lightGray
-    }
-    
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
-        for dates in arrayOfDatesWithBookings{
-            if(Calendar.current.isDate(dates, inSameDayAs:date) && date > Date()){
-                return .black
-            }
-        }
-        return .clear
-    }
-    
-    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        
-        for dates in arrayOfDatesWithBookings{
-            if(Calendar.current.isDate(dates, inSameDayAs:date) && date < Date()){
-                return 1
-            }
-        }
-        
-        return 0
-    }
-    
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
-        return [UIColor.lightGray]
-    }
-    
-    
-    func maximumDate(for calendar: FSCalendar) -> Date {
-        let maxedMonth = Calendar.current.date(byAdding: .month, value: 2, to: Date())!
-        return maxedMonth
-    }
-    
-    func minimumDate(for calendar: FSCalendar) -> Date {
-        let minMonth = Calendar.current.date(byAdding: .month, value: -4, to: Date())!
-        return minMonth
-    }
-    
-    
-    
-    //Data Management-------------------------------------------------------
     
     func getData(){
         
-        guard let userID = Auth.auth().currentUser?.uid else {return}
-        
+        let userID = (Auth.auth().currentUser?.uid)!
         let db = Firestore.firestore()
         
         db.collection("Bookings").whereField("servicer", isEqualTo: userID).addSnapshotListener { querySnapshot, error in
@@ -308,49 +307,71 @@ class AppointmentsViewController:UITableViewController, AppointmentsDelegate, FS
             }
         }
         
-        //set up next 3 months
-        var next90DaysArray = [Date]()
-        let cal = Calendar.current
-        var date = cal.startOfDay(for: Date())
-        for _ in 1 ... 90 {
-            next90DaysArray.append(date)
-            date = cal.date(byAdding: .day, value: +1, to: date)!
-        }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
         
-        db.collection("Users").document(userID).collection("MySchedule").getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    
-                    var daysOfWeekAvailaiblityArray = [AvailableDaysModel]()
-                    
-                    //Find and filter available dates based on day of week availability
-                    var availableDays = [String]()
-                    for document in querySnapshot!.documents{
-                        self.doesUserHaveCalendar = true
-                        
-                        let dayOfWeek = document.documentID
-                        let startTime = document.get("startTime") as! String
-                        let endTime = document.get("endTime") as! String
-                        
-                        daysOfWeekAvailaiblityArray.append(AvailableDaysModel(dayOfWeek: dayOfWeek, startTime: startTime, endTime: endTime))
-                        availableDays.append(dayOfWeek)
-                    }
-                    for day in next90DaysArray{
-                        let dayInString = dateFormatter.string(from: day)
-                        
-                        if(availableDays.contains(dayInString)){
-                            self.availableDates.append(day)
-                        }
-                    }
-                    
-                    //reload the collectionview
-                    self.updateTableView()
-                    
-                }
+        db.collection("Users").document(userID).collection("MySchedule").addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
+            }
+            
+            let next90DaysArray = HelperForCalculating.setupNext90Days()
+            var userAvailabilityModelArray = [UserAvailabilityModel]()
+            
+            for document in documents{
+                let dayOfWeekString = document.documentID
+                let startTimeString = document.get("startTime") as? String
+                let endTimeString = document.get("endTime") as? String
+                
+                userAvailabilityModelArray.append(UserAvailabilityModel(dayOfWeekString: dayOfWeekString, startTimeString: startTimeString, endTimeString: endTimeString))
+            }
+            
+            self.availableDates = HelperForCalculating.calculateAvailableDays(next90Days: next90DaysArray, userAvailabilityModel: userAvailabilityModelArray)
+            
+            self.updateTableView()
+            
         }
+        
+        db.collection("Users").document(userID).collection("Exceptions").addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
+            }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm a"
+            
+            for document in documents{
+                let exceptionID = document.get("exceptionID") as! Int
+                let date = (document.get("date") as! Timestamp).dateValue()
+                
+                //0 = booked off, 1 = changed time
+                if(exceptionID == 0){
+                    self.availableDates = self.availableDates.filter{ !(Calendar.current.isDate($0.startDate!, inSameDayAs: date)) }
+                } else {
+                    let startTime = document.get("startTime") as? String
+                    let endTime = document.get("endTime") as? String
+                    //Monday is not important just used for the model
+                    let model = UserAvailabilityModel(dayOfWeekString: "Monday", startTimeString: startTime, endTimeString: endTime)
+                    
+                    let startDate = Calendar.current.date(bySettingHour: model.startTimeHour, minute: model.startTimeMin, second: 0, of: date)
+                    let endDate = Calendar.current.date(bySettingHour: model.endTimeHour, minute: model.endTimeMin, second: 0, of: date)
+                    
+                    if let row = self.availableDates.lastIndex(where: {Calendar.current.isDate($0.startDate!, inSameDayAs: date)}) {
+                        self.availableDates[row] = UserScheduleModel(startDate: startDate, endDate: endDate)
+                        self.updateTableView()
+                    } else {
+                        self.availableDates.append(UserScheduleModel(startDate: startDate, endDate: endDate))
+                        self.updateTableView()
+                    }
+                }
+                
+            }
+            
+            
+            self.updateTableView()
+            
+        }
+        
     }
     
     func sortArray(){
@@ -382,8 +403,7 @@ class AppointmentsViewController:UITableViewController, AppointmentsDelegate, FS
     @objc func menuButtonTapped(sender: UIBarButtonItem) {
         switch sender {
         case self.navigationItem.rightBarButtonItem:
-            let viewController = AddTimeBlockController()
-            self.present(viewController, animated:true)
+            HelperViewTransitions.showAvailabilityControllerScheduler(currentViewController:self)
         default:
             break
         }
@@ -394,17 +414,84 @@ class AppointmentsViewController:UITableViewController, AppointmentsDelegate, FS
         switch appointmentsArray.count {
         case 0:
             //no data
-            break
+            showAlert(isDefaultCell: true, indexPath: indexPath)
         default:
             //with data
             switch indexPath.row {
             case appointmentsArray.count:
-                break
+                showAlert(isDefaultCell: true, indexPath: indexPath)
             default:
-                let model = appointmentsArray[indexPath.row]
-                
+                showAlert(isDefaultCell: false, indexPath: indexPath)
+            }
+        }
+        
+
+    }
+    
+//DO Functions-------------------------------------------------------------------------
+    
+    func showAlert(isDefaultCell:Bool, indexPath:IndexPath){
+        if(isDefaultCell){
+            if(selectedDate.startOfDay >= Date().startOfDay){
                 let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                        
+                if(availableDates.contains(where:{Calendar.current.isDate(selectedDate, inSameDayAs: $0.startDate!)})){
+                    //selected date is available
+                    alert.addAction(UIAlertAction(title: "Close Remaining Spots", style: .default, handler: { (_) in
+                        let viewController = ScheduleExceptionController()
+                        viewController.viewToShow = 0
+                        viewController.dateSelected = self.selectedDate
+                        let navigationController = UINavigationController(rootViewController: viewController)
+                        alert.dismiss(animated: true, completion: {
+                            self.present(navigationController, animated: true)
+                        })
+                    }))
+                    
+                    alert.addAction(UIAlertAction(title: "Change Hours", style: .default, handler: { (_) in
+                        let viewController = ScheduleExceptionController()
+                        viewController.viewToShow = 2
+                        viewController.dateSelected = self.selectedDate
+                        let navigationController = UINavigationController(rootViewController: viewController)
+                        alert.dismiss(animated: true, completion: {
+                            self.present(navigationController, animated: true)
+                        })
+                    }))
+                    
+                } else {
+                    alert.addAction(UIAlertAction(title: "Open Spot", style: .default, handler: { (_) in
+                        let viewController = ScheduleExceptionController()
+                        viewController.viewToShow = 1
+                        viewController.dateSelected = self.selectedDate
+                        let navigationController = UINavigationController(rootViewController: viewController)
+                        alert.dismiss(animated: true, completion: {
+                            self.present(navigationController, animated: true)
+                        })
+                    }))
+                    
+                    alert.addAction(UIAlertAction(title: "Change Availability", style: .default, handler: { (_) in
+                        alert.dismiss(animated: true, completion: {
+                            HelperViewTransitions.showAvailabilityControllerScheduler(currentViewController:self)
+                        })
+                    }))
+                }
+            
                 
+                alert.addAction(UIAlertAction(title: "Email Support", style: .default, handler: { (_) in
+                    self.sendEmail("No Booking ID")
+                }))
+            
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+                    
+                }))
+                
+                self.present(alert, animated: true, completion: nil)
+                }
+        } else {
+            let model = appointmentsArray[indexPath.row]
+            
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            if(model.serviceDate!.startOfDay >= Date().startOfDay - (86400 * 2)){//86400 seconds/day
                 alert.addAction(UIAlertAction(title: "Contact \(model.otherName!)", style: .default, handler: { (_) in
                     
                     if(MFMessageComposeViewController.canSendText()){
@@ -416,28 +503,26 @@ class AppointmentsViewController:UITableViewController, AppointmentsDelegate, FS
                     }
                     
                 }))
-                
-                alert.addAction(UIAlertAction(title: "Open in Maps", style: .default, handler: { (_) in
-                    self.openMapForPlace(model.serviceLocation, model.serviceTitle!)
-                }))
-                
-                
-                alert.addAction(UIAlertAction(title: "Email Support", style: .default, handler: { (_) in
-                    self.sendEmail(model.bookingID!)
-                }))
-                
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
-                    
-                }))
-                
-                self.present(alert, animated: true, completion: nil)
             }
+            
+            
+            alert.addAction(UIAlertAction(title: "Open in Maps", style: .default, handler: { (_) in
+                self.openMapForPlace(model.serviceLocation, model.serviceTitle!)
+            }))
+            
+            
+            alert.addAction(UIAlertAction(title: "Email Support", style: .default, handler: { (_) in
+                self.sendEmail(model.bookingID!)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+                
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
         }
-        
-
-    }
     
-//DO Functions-------------------------------------------------------------------------
+    }
     
     func openMapForPlace(_ location:CLLocation?, _ mapItemName:String) {
 
@@ -587,7 +672,7 @@ class CalendarCell:UITableViewCell{
 class AppointmentsTableCell:UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var appointmentsArray = [ServicerAppointmentsModel]()
-    var availableDates = [Date]()
+    var availableDates = [UserScheduleModel]()
     var selectedDate = Date()
     
     var delegate: AppointmentsDelegate?
@@ -643,23 +728,42 @@ class AppointmentsTableCell:UITableViewCell, UICollectionViewDataSource, UIColle
         
         let enableOrDisableCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EnableOrDisableCell", for: indexPath) as! EnableOrDisableDateCell
         
-        for date in availableDates{
-            if(Calendar.current.isDate(selectedDate, inSameDayAs: date)){
-                enableOrDisableCell.titleLabel.text = "You are available for this date to be booked."
-                enableOrDisableCell.backgroundColor = .systemGreen
-                break
+        //set availability time
+        let availableDay = availableDates.first(where: {Calendar.current.isDate(selectedDate, inSameDayAs: $0.startDate!)})
+        if availableDay != nil {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm a"
+            
+            let timeStart = dateFormatter.string(from: availableDay!.startDate!)
+            let timeEnd = dateFormatter.string(from: availableDay!.endDate!)
+            
+            enableOrDisableCell.extraTextLabel.text = "Available to book from\n\(timeStart)\nto\n\(timeEnd)"
+        } else {
+            enableOrDisableCell.extraTextLabel.text = ""
+        }
+        
+        //Set title and cell color
+        if availableDates.contains(where: { Calendar.current.isDate(selectedDate, inSameDayAs: $0.startDate!)}) {
+             // found
+            enableOrDisableCell.titleLabel.text = "You are available for this date to be booked."
+            enableOrDisableCell.backgroundColor = .systemGreen
+            enableOrDisableCell.optionsButton.isHidden = false
+        } else {
+             // not
+            if(selectedDate < Date().startOfDay){
+                enableOrDisableCell.titleLabel.text = "This date has passed."
+                enableOrDisableCell.backgroundColor = .black
+                enableOrDisableCell.optionsButton.isHidden = true
             } else {
-                if(selectedDate < Date()){
-                    enableOrDisableCell.titleLabel.text = "This date has passed."
-                    enableOrDisableCell.backgroundColor = .black
-                } else {
-                    enableOrDisableCell.titleLabel.text = "You are not available on this date."
-                    enableOrDisableCell.backgroundColor = .lightGray
-                }
-                
+                enableOrDisableCell.titleLabel.text = "You are not available on this date."
+                enableOrDisableCell.backgroundColor = .lightGray
+                enableOrDisableCell.optionsButton.isHidden = false
             }
         }
         
+        //set subTitle
+        let appointmentsInToday = appointmentsArray.filter{Calendar.current.isDate(selectedDate, inSameDayAs: $0.serviceDate!)}
+        enableOrDisableCell.subTitleLabel.text = "\(appointmentsInToday.count) appointment(s)"
         
         switch appointmentsArray.count {
         case 0:
@@ -676,6 +780,13 @@ class AppointmentsTableCell:UITableViewCell, UICollectionViewDataSource, UIColle
                 cell.timeLabel.text = model.serviceTime
                 cell.durationLabel.text = model.serviceDuration
                 cell.locationLabel.text = model.serviceLocationText
+                cell.userImage.image = model.userImage
+                if(model.userImage == nil){
+                    cell.userImage.layer.borderWidth = 0
+                } else {
+                    cell.userImage.layer.borderWidth = 1
+                }
+                
                 return cell
             }
         }
@@ -712,6 +823,15 @@ class AppointmentsCollectionCell:UICollectionViewCell{
         textView.adjustsFontSizeToFitWidth = true
         textView.text = "Home Cleaning With Kristofer"
         return textView
+    }()
+    
+    public let userImage:UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.white.cgColor
+        return imageView
     }()
     
     public let payIcon: UIImageView = {
@@ -819,10 +939,16 @@ class AppointmentsCollectionCell:UICollectionViewCell{
     
     func setupViews(){
         
+        self.addSubview(userImage)
+        userImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
+        userImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25).isActive = true
+        userImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        userImage.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        
         self.addSubview(titleLabel)
         titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: userImage.leadingAnchor, constant: -10).isActive = true
         
         self.addSubview(payIcon)
         payIcon.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
@@ -879,6 +1005,9 @@ class AppointmentsCollectionCell:UICollectionViewCell{
         self.layer.shadowOpacity = 0.23
         self.layer.shadowRadius = 4
         
+        userImage.layer.cornerRadius = userImage.frame.height / 2.0
+        userImage.clipsToBounds = true
+        
         self.layoutIfNeeded()
         
     }
@@ -899,7 +1028,17 @@ class EnableOrDisableDateCell:UICollectionViewCell{
         textView.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 28)
         textView.numberOfLines = 2
         textView.adjustsFontSizeToFitWidth = true
-        textView.text = "0 appointments for this day."
+        return textView
+    }()
+    
+    public let subTitleLabel:UILabel = {
+        let textView = UILabel()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.textColor = .white
+        textView.textAlignment = NSTextAlignment.left
+        textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 20)
+        textView.numberOfLines = 2
+        textView.adjustsFontSizeToFitWidth = true
         return textView
     }()
     
@@ -909,9 +1048,8 @@ class EnableOrDisableDateCell:UICollectionViewCell{
         textView.textColor = .white
         textView.textAlignment = NSTextAlignment.left
         textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18)
-        textView.numberOfLines = 1
+        textView.numberOfLines = 0
         textView.adjustsFontSizeToFitWidth = true
-        textView.text = "$30"
         return textView
     }()
 
@@ -924,6 +1062,7 @@ class EnableOrDisableDateCell:UICollectionViewCell{
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
+        button.isUserInteractionEnabled = false
         button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
         return button
     }()
@@ -943,7 +1082,22 @@ class EnableOrDisableDateCell:UICollectionViewCell{
         titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25).isActive = true
-
+        
+        self.addSubview(subTitleLabel)
+        subTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
+        subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
+        subTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25).isActive = true
+        
+        self.addSubview(optionsButton)
+        optionsButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
+        optionsButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25).isActive = true
+        optionsButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        optionsButton.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        
+        self.addSubview(extraTextLabel)
+        extraTextLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
+        extraTextLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25).isActive = true
+        extraTextLabel.bottomAnchor.constraint(equalTo: optionsButton.topAnchor, constant: -10).isActive = true
     }
     
     override func layoutSubviews() {

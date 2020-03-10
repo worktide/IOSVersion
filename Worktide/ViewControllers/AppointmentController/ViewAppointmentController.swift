@@ -42,7 +42,7 @@ class ViewAppointmentController:UIViewController, GMSMapViewDelegate, MFMailComp
     }()
     
     private let personIcon:UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "createServiceIcon"))
+        let imageView = UIImageView(image: UIImage(named: "peopleIcon"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

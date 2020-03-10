@@ -10,8 +10,6 @@ import UIKit
 
 class SelectAppointmentCell:UICollectionViewCell{
     
-    var name:String!
-    
     public let userProfileImage:UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "lightBlueBackground"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +23,6 @@ class SelectAppointmentCell:UICollectionViewCell{
     public let serviceTitle:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Men's Haircut"
         label.numberOfLines = 1
         label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 18)
         label.textAlignment = .left
@@ -36,7 +33,6 @@ class SelectAppointmentCell:UICollectionViewCell{
     public let appointmentDate:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Saturday, December 16"
         label.numberOfLines = 1
         label.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18)
         label.textAlignment = .left
@@ -83,15 +79,7 @@ class SelectAppointmentCell:UICollectionViewCell{
         self.layoutIfNeeded()
         userProfileImage.layer.cornerRadius = userProfileImage.frame.height / 2.0
         userProfileImage.clipsToBounds = true
-        
-        if(name != nil){
-            let fullNameArr = name.components(separatedBy: " ")
-            if(fullNameArr.count == 1){
-                userProfileImage.addInitials(first: fullNameArr[0].first!.description, second: "", textSize: 30)
-            } else if (fullNameArr.count > 1){
-                userProfileImage.addInitials(first: fullNameArr[0].first!.description, second: fullNameArr[1].first!.description, textSize: 30)
-            }
-        }
+
     }
     
     required init?(coder: NSCoder) {

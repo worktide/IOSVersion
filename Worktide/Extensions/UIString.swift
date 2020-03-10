@@ -9,6 +9,32 @@
 import UIKit
 
 extension String {
+    func toDouble() -> Double? {
+        return NumberFormatter().number(from: self)?.doubleValue
+    }
+    
+    var initials: String {
+        return self.components(separatedBy: " ").filter { !$0.isEmpty }.reduce("") { ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }
+    }
+    
+    func dayOfWeekToInt() -> Int{
+        switch self {
+        case "Monday":
+            return 0
+        case "Tuesday":
+            return 1
+        case "Wednesday":
+            return 2
+        case "Thursday":
+            return 3
+        case "Friday":
+            return 4
+        case "Saturday":
+            return 5
+        default:
+            return 6
+        }
+    }
     
     func applyPatternOnNumbers(pattern: String, replacmentCharacter: Character) -> String {
         var pureNumber = self.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)

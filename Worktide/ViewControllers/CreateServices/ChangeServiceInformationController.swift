@@ -115,25 +115,25 @@ class ChangeServiceInformationController:UITableViewController, ChangeServiceDel
         switch indexPath.row {
         case 1:
             let viewController = ServicePayController()
-            viewController.costLabelInt = Int(servicePay) ?? 0
-            viewController.fromChangeService = true
-            viewController.delegate = self
+            //viewController.costLabelInt = Int(servicePay) ?? 0
+            //viewController.fromChangeService = true
+            //viewController.delegate = self
             let navigationController = UINavigationController(rootViewController: viewController)
             self.present(navigationController, animated: true)
         case 2:
-            let viewController = ServiceDurationController()
-            viewController.fromChangeService = true
-            viewController.delegate = self
-            viewController.timeShowLabel.text = serviceDurationText
-            let date = Calendar.current.date(bySettingHour:hour, minute: minutes, second: 0, of: Date())!
-            viewController.durationPicker.setDate(date, animated: true)
+            let viewController = ServiceSchedulingController()
+            //viewController.fromChangeService = true
+            //viewController.delegate = self
+            //viewController.timeShowLabel.text = serviceDurationText
+            //let date = Calendar.current.date(bySettingHour:hour, minute: minutes, second: 0, of: Date())!
+            //viewController.durationPicker.setDate(date, animated: true)
             let navigationController = UINavigationController(rootViewController: viewController)
             self.present(navigationController, animated: true)
         case 3:
-            let viewController = ServiceDescriptionController()
+            let viewController = ServiceExtraInformationController()
             viewController.delegate = self
             viewController.fromChangeService = true
-            viewController.serviceDescription = self.serviceDescription
+            //viewController.serviceDescription = self.serviceDescription
             let navigationController = UINavigationController(rootViewController: viewController)
             self.present(navigationController, animated: true)
         case 4:
@@ -142,7 +142,7 @@ class ChangeServiceInformationController:UITableViewController, ChangeServiceDel
             viewController.delegate = self
             viewController.latitude = latitude
             viewController.longitude = longitude
-            viewController.circleRadius.radius = circleDistance
+            //viewController.circleRadius.radius = circleDistance
             let navigationController = UINavigationController(rootViewController: viewController)
             self.present(navigationController, animated: true)
         case 5:
@@ -271,7 +271,7 @@ class ChangeServiceInformationController:UITableViewController, ChangeServiceDel
                         self.serviceDurationText = String(self.hour) + " hours " + String(self.minutes) + " min"
                     }
                 }
-                InputDetails.details.serviceDuration = (self.hour * 60) + self.minutes
+                //InputDetails.details.serviceDuration = (self.hour * 60) + self.minutes
                 
                 //SERVICE LOCATION
                 self.latitude = document.get("latitude") as! Double

@@ -25,6 +25,7 @@ class AccountSettingsCell:UICollectionViewCell{
         textView.textAlignment = NSTextAlignment.left
         textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
         textView.numberOfLines = 1
+        textView.adjustsFontSizeToFitWidth = true
         return textView
     }()
     
@@ -41,6 +42,15 @@ class AccountSettingsCell:UICollectionViewCell{
         return view
     }()
     
+    private let rightArrow:UIImageView = {
+        let image = UIImage(named: "backIconBlack")!.withRenderingMode(.alwaysTemplate)
+        let imageView = UIImageView(image: image)
+        imageView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.tintColor = .darkGray
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame:frame)
         self.backgroundColor = .white
@@ -53,23 +63,28 @@ class AccountSettingsCell:UICollectionViewCell{
         backgroundViewColor.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         backgroundViewColor.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         
-        self.addSubview(lineSeperator)
-        lineSeperator.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-        lineSeperator.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-        lineSeperator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
-        lineSeperator.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        
         self.addSubview(settingsImage)
-        settingsImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25).isActive = true
+        settingsImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
         settingsImage.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        settingsImage.widthAnchor.constraint(equalToConstant: 15).isActive = true
-        settingsImage.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        settingsImage.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        settingsImage.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        
+        self.addSubview(rightArrow)
+        rightArrow.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25).isActive = true
+        rightArrow.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        rightArrow.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        rightArrow.heightAnchor.constraint(equalToConstant: 15).isActive = true
         
         self.addSubview(settingsTitle)
-        settingsTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
+        settingsTitle.leadingAnchor.constraint(equalTo: settingsImage.trailingAnchor, constant: 15).isActive = true
         settingsTitle.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        settingsTitle.trailingAnchor.constraint(equalTo: settingsImage.leadingAnchor, constant: -25).isActive = true
+        settingsTitle.trailingAnchor.constraint(equalTo: rightArrow.leadingAnchor, constant: -25).isActive = true
         
+        self.addSubview(lineSeperator)
+        lineSeperator.leadingAnchor.constraint(equalTo: settingsTitle.leadingAnchor).isActive = true
+        lineSeperator.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        lineSeperator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        lineSeperator.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
     

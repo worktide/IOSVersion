@@ -70,12 +70,9 @@ class ServicesByCategoryController:UICollectionViewController, UICollectionViewD
         case nil:
             cell.userProfileImage.removeAllSubviews()
             cell.userProfileImage.image = UIImage(named: "lightBlueBackground")
-            let fullNameArr = model.creatorName!.components(separatedBy: " ")
-            if(fullNameArr.count == 1){
-                cell.userProfileImage.addInitials(first: fullNameArr[0].first!.description, second: "", textSize: 20)
-            } else if(fullNameArr.count <= 2){
-                cell.userProfileImage.addInitials(first: fullNameArr[0].first!.description, second: fullNameArr[1].first!.description, textSize: 20)
-            }
+            
+            let initials = model.creatorName!.initials
+            cell.userProfileImage.addInitials(initial:initials, textSize: 20)
         default:
             cell.userProfileImage.removeAllSubviews()
             cell.userProfileImage.image = model.creatorImage
