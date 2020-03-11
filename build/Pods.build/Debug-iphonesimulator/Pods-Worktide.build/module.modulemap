@@ -1,0 +1,6 @@
+framework module Pods_Worktide {
+  umbrella header "Pods-Worktide-umbrella.h"
+
+  export *
+  module * { export * }
+}
