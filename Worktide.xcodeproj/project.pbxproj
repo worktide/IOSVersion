@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13101E82C07C0BD5650DEADC /* Pods_WorktideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEC5DB54A27408F7FF149AC /* Pods_WorktideTests.framework */; };
 		300455622309006B00A66FA3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300455612309006B00A66FA3 /* UIView.swift */; };
 		3004D7A623135ABD00A22E10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3004D7A523135ABD00A22E10 /* GoogleService-Info.plist */; };
 		300527B02342DA1E00A14CB3 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300527AF2342DA1E00A14CB3 /* UITableView.swift */; };
@@ -31,13 +30,11 @@
 		3041BBBB237475A500D5922B /* CompletedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041BBBA237475A500D5922B /* CompletedController.swift */; };
 		3041BBBE2374897900D5922B /* ServiceSchedulingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041BBBD2374897900D5922B /* ServiceSchedulingController.swift */; };
 		3041BBC02374B24100D5922B /* SupportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041BBBF2374B24100D5922B /* SupportController.swift */; };
-		3043F71B23AB109800F7E309 /* TimeSelectServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3043F71A23AB109800F7E309 /* TimeSelectServiceController.swift */; };
 		3043F71F23AB11A000F7E309 /* TimeAvailabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3043F71E23AB11A000F7E309 /* TimeAvailabilityCell.swift */; };
 		3043F72123ABEF5000F7E309 /* ConfirmAppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3043F72023ABEF5000F7E309 /* ConfirmAppointmentController.swift */; };
 		3043F72323AC073000F7E309 /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3043F72223AC073000F7E309 /* ScheduleModel.swift */; };
 		3043F72523AC0B4C00F7E309 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3043F72423AC0B4C00F7E309 /* Date.swift */; };
 		304B440D23BD327800E56E82 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B440C23BD327800E56E82 /* CollectionViewCell.swift */; };
-		304B441223BD3B8400E56E82 /* CollectionViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B441123BD3B8400E56E82 /* CollectionViewHeaderCell.swift */; };
 		304B441423BD479500E56E82 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B441323BD479500E56E82 /* CategoryCollectionCell.swift */; };
 		304B9850237717C40069FCAF /* DaysAvailabilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B984F237717C40069FCAF /* DaysAvailabilityController.swift */; };
 		304B98522377BA570069FCAF /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B98512377BA570069FCAF /* UICollectionView.swift */; };
@@ -60,7 +57,6 @@
 		306F14CC2385B68A00114039 /* BreakCalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306F14CB2385B68A00114039 /* BreakCalendarController.swift */; };
 		3072D8D423F9D6AE00DF3650 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8D323F9D6AE00DF3650 /* IntExtension.swift */; };
 		3072D8D623F9E5B800DF3650 /* ServicerAppointmentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8D523F9E5B800DF3650 /* ServicerAppointmentsModel.swift */; };
-		3072D8D823FB841400DF3650 /* ProfileImageSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8D723FB841400DF3650 /* ProfileImageSetupViewController.swift */; };
 		3072D8E123FDCC2000DF3650 /* HelperForReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8E023FDCC2000DF3650 /* HelperForReading.swift */; };
 		3072D8E323FDCDB600DF3650 /* HelperViewTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8E223FDCDB600DF3650 /* HelperViewTransitions.swift */; };
 		3072D8E523FDFB1900DF3650 /* UserAvailabilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8E423FDFB1900DF3650 /* UserAvailabilityModel.swift */; };
@@ -69,13 +65,17 @@
 		3072D8EF23FF155E00DF3650 /* AvailabilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8EE23FF155E00DF3650 /* AvailabilityController.swift */; };
 		3072D8F12400619F00DF3650 /* HelperLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8F02400619F00DF3650 /* HelperLoading.swift */; };
 		3072D8F32401117000DF3650 /* RecommendedServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8F22401117000DF3650 /* RecommendedServiceModel.swift */; };
-		3072D8F52401B58400DF3650 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8F42401B58400DF3650 /* NotificationController.swift */; };
+		3072D8F52401B58400DF3650 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8F42401B58400DF3650 /* NotificationsController.swift */; };
 		3072D8F72407526A00DF3650 /* QuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8F62407526900DF3650 /* QuestionsController.swift */; };
 		3072D8F92408E71D00DF3650 /* LearnMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072D8F82408E71D00DF3650 /* LearnMoreViewController.swift */; };
 		307469F52321FF0E0047E139 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307469F42321FF0E0047E139 /* UITextField.swift */; };
 		3079C6F42409EFDC00D7D612 /* CreateServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3079C6F32409EFDC00D7D612 /* CreateServiceModel.swift */; };
 		308891122410820600889D9A /* GMSCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308891112410820600889D9A /* GMSCircle.swift */; };
 		308891162415778100889D9A /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308891152415778100889D9A /* Protocol.swift */; };
+		3088915F241A84CA00889D9A /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3088915E241A84CA00889D9A /* LoginController.swift */; };
+		30889161241A850900889D9A /* UserServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30889160241A850900889D9A /* UserServiceController.swift */; };
+		30889168241A887C00889D9A /* TimeSelectServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30889167241A887C00889D9A /* TimeSelectServiceController.swift */; };
+		3088916A241A8A2800889D9A /* CollectionViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30889169241A8A2800889D9A /* CollectionViewHeaderCell.swift */; };
 		30AAAB8D23D0E46800C819C8 /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAAB8C23D0E46800C819C8 /* AppointmentsViewController.swift */; };
 		30AAAB8F23D0E53600C819C8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAAB8E23D0E53600C819C8 /* TabBarController.swift */; };
 		30AAAB9123D67E5500C819C8 /* GetUserLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAAB9023D67E5500C819C8 /* GetUserLocationController.swift */; };
@@ -85,9 +85,7 @@
 		30B9655E23B1794E00C3F885 /* ServiceCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9655D23B1794E00C3F885 /* ServiceCategoryModel.swift */; };
 		30B9656623B5430E00C3F885 /* TimeRangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9656523B5430E00C3F885 /* TimeRangeModel.swift */; };
 		30B9656823B58B1B00C3F885 /* ViewAppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9656723B58B1B00C3F885 /* ViewAppointmentCell.swift */; };
-		30B9656A23B5B62200C3F885 /* AppointmentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9656923B5B62200C3F885 /* AppointmentsController.swift */; };
 		30B9656D23B664DF00C3F885 /* ViewAppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9656C23B664DF00C3F885 /* ViewAppointmentController.swift */; };
-		30B9656F23B6669100C3F885 /* SelectAppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9656E23B6669100C3F885 /* SelectAppointmentCell.swift */; };
 		30B9657123B6730D00C3F885 /* AppointmentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9657023B6730D00C3F885 /* AppointmentsModel.swift */; };
 		30BF1A3E23A6C28800F91290 /* CLLocationCoordiante2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF1A3D23A6C28800F91290 /* CLLocationCoordiante2DExtension.swift */; };
 		30C7659B23C13D1300CF5657 /* ServiceExtraInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C7659A23C13D1300CF5657 /* ServiceExtraInformationController.swift */; };
@@ -110,33 +108,11 @@
 		30E319122389EA6E002FCC54 /* MainViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E319112389EA6E002FCC54 /* MainViewHeader.swift */; };
 		30E31917238B0A20002FCC54 /* SectionTitleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E31916238B0A20002FCC54 /* SectionTitleHeader.swift */; };
 		30E31919238B1734002FCC54 /* ServiceSpotlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E31918238B1734002FCC54 /* ServiceSpotlightModel.swift */; };
-		30E3191D238D84D2002FCC54 /* UserServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3191C238D84D2002FCC54 /* UserServiceController.swift */; };
-		30E3191F2391F45D002FCC54 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3191E2391F45D002FCC54 /* LoginController.swift */; };
 		30E3193123920D50002FCC54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E3193023920D4F002FCC54 /* Assets.xcassets */; };
 		30E3193323921636002FCC54 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E3193223921636002FCC54 /* Launch Screen.storyboard */; };
 		30F066D8230500A8009216E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F066D7230500A8009216E1 /* AppDelegate.swift */; };
-		30F066ED230500A9009216E1 /* WorktideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F066EC230500A9009216E1 /* WorktideTests.swift */; };
-		30F066F8230500A9009216E1 /* WorktideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F066F7230500A9009216E1 /* WorktideUITests.swift */; };
-		CFDF84C01AE126DA9C9C5716 /* Pods_WorktideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2E4D8E1D0B4972830F3583 /* Pods_WorktideUITests.framework */; };
 		FE92E1DD3D0CC8FC149269F4 /* Pods_Worktide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9298A2F7A77B2F94B97417 /* Pods_Worktide.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		30F066E9230500A9009216E1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30F066CC230500A8009216E1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30F066D3230500A8009216E1;
-			remoteInfo = Worktide;
-		};
-		30F066F4230500A9009216E1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30F066CC230500A8009216E1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30F066D3230500A8009216E1;
-			remoteInfo = Worktide;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		06E4D4D5F8379EE01C155B8A /* Pods-WorktideUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorktideUITests.release.xcconfig"; path = "Target Support Files/Pods-WorktideUITests/Pods-WorktideUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,13 +140,11 @@
 		3041BBBA237475A500D5922B /* CompletedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedController.swift; sourceTree = "<group>"; };
 		3041BBBD2374897900D5922B /* ServiceSchedulingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSchedulingController.swift; sourceTree = "<group>"; };
 		3041BBBF2374B24100D5922B /* SupportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportController.swift; sourceTree = "<group>"; };
-		3043F71A23AB109800F7E309 /* TimeSelectServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeSelectServiceController.swift; path = Worktide/ViewControllers/UserServiceController/TimeSelectServiceController.swift; sourceTree = SOURCE_ROOT; };
 		3043F71E23AB11A000F7E309 /* TimeAvailabilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAvailabilityCell.swift; sourceTree = "<group>"; };
 		3043F72023ABEF5000F7E309 /* ConfirmAppointmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAppointmentController.swift; sourceTree = "<group>"; };
 		3043F72223AC073000F7E309 /* ScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
 		3043F72423AC0B4C00F7E309 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		304B440C23BD327800E56E82 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		304B441123BD3B8400E56E82 /* CollectionViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeaderCell.swift; sourceTree = "<group>"; };
 		304B441323BD479500E56E82 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 		304B984F237717C40069FCAF /* DaysAvailabilityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysAvailabilityController.swift; sourceTree = "<group>"; };
 		304B98512377BA570069FCAF /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
@@ -193,7 +167,6 @@
 		306F14CB2385B68A00114039 /* BreakCalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakCalendarController.swift; sourceTree = "<group>"; };
 		3072D8D323F9D6AE00DF3650 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		3072D8D523F9E5B800DF3650 /* ServicerAppointmentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicerAppointmentsModel.swift; sourceTree = "<group>"; };
-		3072D8D723FB841400DF3650 /* ProfileImageSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSetupViewController.swift; sourceTree = "<group>"; };
 		3072D8E023FDCC2000DF3650 /* HelperForReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperForReading.swift; sourceTree = "<group>"; };
 		3072D8E223FDCDB600DF3650 /* HelperViewTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperViewTransitions.swift; sourceTree = "<group>"; };
 		3072D8E423FDFB1900DF3650 /* UserAvailabilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvailabilityModel.swift; sourceTree = "<group>"; };
@@ -202,13 +175,17 @@
 		3072D8EE23FF155E00DF3650 /* AvailabilityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityController.swift; sourceTree = "<group>"; };
 		3072D8F02400619F00DF3650 /* HelperLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperLoading.swift; sourceTree = "<group>"; };
 		3072D8F22401117000DF3650 /* RecommendedServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedServiceModel.swift; sourceTree = "<group>"; };
-		3072D8F42401B58400DF3650 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		3072D8F42401B58400DF3650 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		3072D8F62407526900DF3650 /* QuestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsController.swift; sourceTree = "<group>"; };
 		3072D8F82408E71D00DF3650 /* LearnMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreViewController.swift; sourceTree = "<group>"; };
 		307469F42321FF0E0047E139 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		3079C6F32409EFDC00D7D612 /* CreateServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateServiceModel.swift; sourceTree = "<group>"; };
 		308891112410820600889D9A /* GMSCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSCircle.swift; sourceTree = "<group>"; };
 		308891152415778100889D9A /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		3088915E241A84CA00889D9A /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		30889160241A850900889D9A /* UserServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceController.swift; sourceTree = "<group>"; };
+		30889167241A887C00889D9A /* TimeSelectServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectServiceController.swift; sourceTree = "<group>"; };
+		30889169241A8A2800889D9A /* CollectionViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHeaderCell.swift; sourceTree = "<group>"; };
 		30AAAB8C23D0E46800C819C8 /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
 		30AAAB8E23D0E53600C819C8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		30AAAB9023D67E5500C819C8 /* GetUserLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLocationController.swift; sourceTree = "<group>"; };
@@ -218,9 +195,7 @@
 		30B9655D23B1794E00C3F885 /* ServiceCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryModel.swift; sourceTree = "<group>"; };
 		30B9656523B5430E00C3F885 /* TimeRangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRangeModel.swift; sourceTree = "<group>"; };
 		30B9656723B58B1B00C3F885 /* ViewAppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAppointmentCell.swift; sourceTree = "<group>"; };
-		30B9656923B5B62200C3F885 /* AppointmentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsController.swift; sourceTree = "<group>"; };
 		30B9656C23B664DF00C3F885 /* ViewAppointmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAppointmentController.swift; sourceTree = "<group>"; };
-		30B9656E23B6669100C3F885 /* SelectAppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppointmentCell.swift; sourceTree = "<group>"; };
 		30B9657023B6730D00C3F885 /* AppointmentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsModel.swift; sourceTree = "<group>"; };
 		30BF1A3D23A6C28800F91290 /* CLLocationCoordiante2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordiante2DExtension.swift; sourceTree = "<group>"; };
 		30C7659A23C13D1300CF5657 /* ServiceExtraInformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceExtraInformationController.swift; sourceTree = "<group>"; };
@@ -244,19 +219,11 @@
 		30E319112389EA6E002FCC54 /* MainViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewHeader.swift; sourceTree = "<group>"; };
 		30E31916238B0A20002FCC54 /* SectionTitleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleHeader.swift; sourceTree = "<group>"; };
 		30E31918238B1734002FCC54 /* ServiceSpotlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSpotlightModel.swift; sourceTree = "<group>"; };
-		30E3191C238D84D2002FCC54 /* UserServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserServiceController.swift; path = "Worktide/ViewControllers/New Group1/UserServiceController.swift"; sourceTree = SOURCE_ROOT; };
-		30E3191E2391F45D002FCC54 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = "../New Group/LoginController.swift"; sourceTree = "<group>"; };
 		30E3193023920D4F002FCC54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30E3193223921636002FCC54 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		30F066D4230500A8009216E1 /* Worktide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Worktide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F066D7230500A8009216E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30F066E3230500A9009216E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30F066E8230500A9009216E1 /* WorktideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorktideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		30F066EC230500A9009216E1 /* WorktideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorktideTests.swift; sourceTree = "<group>"; };
-		30F066EE230500A9009216E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30F066F3230500A9009216E1 /* WorktideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorktideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		30F066F7230500A9009216E1 /* WorktideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorktideUITests.swift; sourceTree = "<group>"; };
-		30F066F9230500A9009216E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		527CBA8D73D1C5790DC81E61 /* Pods-Worktide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Worktide.debug.xcconfig"; path = "Target Support Files/Pods-Worktide/Pods-Worktide.debug.xcconfig"; sourceTree = "<group>"; };
 		7BEC5DB54A27408F7FF149AC /* Pods_WorktideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorktideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98B005539235A62C07F5BA6A /* Pods-WorktideUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorktideUITests.debug.xcconfig"; path = "Target Support Files/Pods-WorktideUITests/Pods-WorktideUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -272,22 +239,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE92E1DD3D0CC8FC149269F4 /* Pods_Worktide.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30F066E5230500A9009216E1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				13101E82C07C0BD5650DEADC /* Pods_WorktideTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30F066F0230500A9009216E1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CFDF84C01AE126DA9C9C5716 /* Pods_WorktideUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,59 +328,38 @@
 			children = (
 				30B9656023B3F55600C3F885 /* Model */,
 				30B9655F23B3F53E00C3F885 /* Cells */,
-				30E3191C238D84D2002FCC54 /* UserServiceController.swift */,
+				30889160241A850900889D9A /* UserServiceController.swift */,
+				30889167241A887C00889D9A /* TimeSelectServiceController.swift */,
 				30C7659F23C2813E00CF5657 /* AboutServiceController.swift */,
 				305EB9F323A7EF480005BC6F /* BookServicesController.swift */,
-				3043F71A23AB109800F7E309 /* TimeSelectServiceController.swift */,
 				3043F72023ABEF5000F7E309 /* ConfirmAppointmentController.swift */,
 			);
 			path = UserServiceController;
 			sourceTree = "<group>";
 		};
-		304E02832368DDE7004B6081 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				30B9656B23B664B300C3F885 /* AppointmentController */,
-				30B9655C23AFEB1E00C3F885 /* ServiceCategoy */,
-				305DCCCD2393551B000E5E2B /* InitialControllers */,
-				304C859C23A4850A00579ECF /* UserServiceController */,
-				30E319102389EA55002FCC54 /* MainViewController */,
-				3041BBBC2374860100D5922B /* CalendarAppointment */,
-				3041BBA9236F635000D5922B /* CreateServices */,
-				304E02D8236CBB13004B6081 /* ProfileSection */,
-				30AAAB9723DCFB8100C819C8 /* CompleteProfileControllers */,
-				304E02D4236B40CD004B6081 /* ImagePickerManager.swift */,
-				304B441123BD3B8400E56E82 /* CollectionViewHeaderCell.swift */,
-				30C7659C23C19F7C00CF5657 /* WhatsNewViewController.swift */,
-				30C765A323C58A5F00CF5657 /* ImagesCell.swift */,
-				30AAAB8E23D0E53600C819C8 /* TabBarController.swift */,
-				3072D8D723FB841400DF3650 /* ProfileImageSetupViewController.swift */,
-				3072D8F42401B58400DF3650 /* NotificationController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		304E02D8236CBB13004B6081 /* ProfileSection */ = {
+		304E02D8236CBB13004B6081 /* ProfileControllerSection */ = {
 			isa = PBXGroup;
 			children = (
 				3041BBA6236F343200D5922B /* Cells */,
 				304E02C82368ED14004B6081 /* ProfileController.swift */,
 				3041BBBF2374B24100D5922B /* SupportController.swift */,
 			);
-			path = ProfileSection;
+			path = ProfileControllerSection;
 			sourceTree = "<group>";
 		};
 		305DCCCD2393551B000E5E2B /* InitialControllers */ = {
 			isa = PBXGroup;
 			children = (
+				30419B0A2395D99400F84941 /* EnableLocationController.swift */,
 				304E02862368DE34004B6081 /* SplashScreenController.swift */,
 				303280D5239443F40070E4D7 /* BeforeLoginController.swift */,
-				30E3191E2391F45D002FCC54 /* LoginController.swift */,
+				3088915E241A84CA00889D9A /* LoginController.swift */,
 				305DCCCE23935553000E5E2B /* VerifyPhoneNumberController.swift */,
 				303280D72394537B0070E4D7 /* UsersNameController.swift */,
 				30AAAB9023D67E5500C819C8 /* GetUserLocationController.swift */,
 			);
-			path = InitialControllers;
+			name = InitialControllers;
+			path = ViewControllers/InitialControllers;
 			sourceTree = "<group>";
 		};
 		306F14CA2383512D00114039 /* ChangeServices */ = {
@@ -456,12 +386,63 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		30AAAB9723DCFB8100C819C8 /* CompleteProfileControllers */ = {
+		3088915D241A831F00889D9A /* Files Not in Use */ = {
 			isa = PBXGroup;
 			children = (
-				30419B0A2395D99400F84941 /* EnableLocationController.swift */,
+				30889169241A8A2800889D9A /* CollectionViewHeaderCell.swift */,
+				3041BBBC2374860100D5922B /* CalendarAppointment */,
+				304C859C23A4850A00579ECF /* UserServiceController */,
+				30B9655C23AFEB1E00C3F885 /* ServiceCategoy */,
+				30B9656B23B664B300C3F885 /* AppointmentController */,
 			);
-			path = CompleteProfileControllers;
+			path = "Files Not in Use";
+			sourceTree = "<group>";
+		};
+		30889162241A852000889D9A /* Servicer Side App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Servicer Side App";
+			sourceTree = "<group>";
+		};
+		30889163241A855F00889D9A /* Customer Side App */ = {
+			isa = PBXGroup;
+			children = (
+				30AAAB8E23D0E53600C819C8 /* TabBarController.swift */,
+				30889165241A86CC00889D9A /* NotificationsControllerSection */,
+				30E319102389EA55002FCC54 /* HomeControllerSection */,
+				304E02D8236CBB13004B6081 /* ProfileControllerSection */,
+			);
+			path = "Customer Side App";
+			sourceTree = "<group>";
+		};
+		30889164241A859C00889D9A /* Shared Files App */ = {
+			isa = PBXGroup;
+			children = (
+				3041BBA9236F635000D5922B /* CreateServices */,
+				304E02D4236B40CD004B6081 /* ImagePickerManager.swift */,
+				30C7659C23C19F7C00CF5657 /* WhatsNewViewController.swift */,
+				30C765A323C58A5F00CF5657 /* ImagesCell.swift */,
+			);
+			path = "Shared Files App";
+			sourceTree = "<group>";
+		};
+		30889165241A86CC00889D9A /* NotificationsControllerSection */ = {
+			isa = PBXGroup;
+			children = (
+				3072D8F42401B58400DF3650 /* NotificationsController.swift */,
+			);
+			path = NotificationsControllerSection;
+			sourceTree = "<group>";
+		};
+		30889166241A871000889D9A /* Protocols_Helpers_Model_Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3072D8DF23FDCC0C00DF3650 /* Helper */,
+				3009BE222308934500AE6ABD /* Extensions */,
+				3004FF62231DE6D900FBB6A3 /* Model */,
+			);
+			path = Protocols_Helpers_Model_Extensions;
 			sourceTree = "<group>";
 		};
 		30B9655C23AFEB1E00C3F885 /* ServiceCategoy */ = {
@@ -504,8 +485,6 @@
 			isa = PBXGroup;
 			children = (
 				30B9657023B6730D00C3F885 /* AppointmentsModel.swift */,
-				30B9656E23B6669100C3F885 /* SelectAppointmentCell.swift */,
-				30B9656923B5B62200C3F885 /* AppointmentsController.swift */,
 				30B9656C23B664DF00C3F885 /* ViewAppointmentController.swift */,
 				30AAAB8C23D0E46800C819C8 /* AppointmentsViewController.swift */,
 				30AAAB9A23E60D2D00C819C8 /* ScheduleExceptionController.swift */,
@@ -514,13 +493,13 @@
 			path = AppointmentController;
 			sourceTree = "<group>";
 		};
-		30E319102389EA55002FCC54 /* MainViewController */ = {
+		30E319102389EA55002FCC54 /* HomeControllerSection */ = {
 			isa = PBXGroup;
 			children = (
 				30E319132389EADB002FCC54 /* Cells */,
 				304E02C62368DF48004B6081 /* MainViewController.swift */,
 			);
-			path = MainViewController;
+			path = HomeControllerSection;
 			sourceTree = "<group>";
 		};
 		30E319132389EADB002FCC54 /* Cells */ = {
@@ -541,8 +520,6 @@
 			isa = PBXGroup;
 			children = (
 				30F066D6230500A8009216E1 /* Worktide */,
-				30F066EB230500A9009216E1 /* WorktideTests */,
-				30F066F6230500A9009216E1 /* WorktideUITests */,
 				30F066D5230500A8009216E1 /* Products */,
 				F5A1A8F680118B76A4D269A0 /* Pods */,
 				52F670AD7331BD9429A3AFE7 /* Frameworks */,
@@ -553,8 +530,6 @@
 			isa = PBXGroup;
 			children = (
 				30F066D4230500A8009216E1 /* Worktide.app */,
-				30F066E8230500A9009216E1 /* WorktideTests.xctest */,
-				30F066F3230500A9009216E1 /* WorktideUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -562,36 +537,20 @@
 		30F066D6230500A8009216E1 /* Worktide */ = {
 			isa = PBXGroup;
 			children = (
-				3009BE222308934500AE6ABD /* Extensions */,
-				3004FF62231DE6D900FBB6A3 /* Model */,
-				3072D8DF23FDCC0C00DF3650 /* Helper */,
-				304E02832368DDE7004B6081 /* ViewControllers */,
-				30CFF878231AFD2800E75FE9 /* Worktide.entitlements */,
+				305DCCCD2393551B000E5E2B /* InitialControllers */,
+				30889163241A855F00889D9A /* Customer Side App */,
+				30889162241A852000889D9A /* Servicer Side App */,
+				30889164241A859C00889D9A /* Shared Files App */,
+				30889166241A871000889D9A /* Protocols_Helpers_Model_Extensions */,
+				3088915D241A831F00889D9A /* Files Not in Use */,
+				30E3193023920D4F002FCC54 /* Assets.xcassets */,
 				30F066D7230500A8009216E1 /* AppDelegate.swift */,
 				30F066E3230500A9009216E1 /* Info.plist */,
-				30E3193023920D4F002FCC54 /* Assets.xcassets */,
+				30CFF878231AFD2800E75FE9 /* Worktide.entitlements */,
 				3004D7A523135ABD00A22E10 /* GoogleService-Info.plist */,
 				30E3193223921636002FCC54 /* Launch Screen.storyboard */,
 			);
 			path = Worktide;
-			sourceTree = "<group>";
-		};
-		30F066EB230500A9009216E1 /* WorktideTests */ = {
-			isa = PBXGroup;
-			children = (
-				30F066EC230500A9009216E1 /* WorktideTests.swift */,
-				30F066EE230500A9009216E1 /* Info.plist */,
-			);
-			path = WorktideTests;
-			sourceTree = "<group>";
-		};
-		30F066F6230500A9009216E1 /* WorktideUITests */ = {
-			isa = PBXGroup;
-			children = (
-				30F066F7230500A9009216E1 /* WorktideUITests.swift */,
-				30F066F9230500A9009216E1 /* Info.plist */,
-			);
-			path = WorktideUITests;
 			sourceTree = "<group>";
 		};
 		52F670AD7331BD9429A3AFE7 /* Frameworks */ = {
@@ -640,44 +599,6 @@
 			productReference = 30F066D4230500A8009216E1 /* Worktide.app */;
 			productType = "com.apple.product-type.application";
 		};
-		30F066E7230500A9009216E1 /* WorktideTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 30F066FF230500A9009216E1 /* Build configuration list for PBXNativeTarget "WorktideTests" */;
-			buildPhases = (
-				D81AE910C3FD06360400FC35 /* [CP] Check Pods Manifest.lock */,
-				30F066E4230500A9009216E1 /* Sources */,
-				30F066E5230500A9009216E1 /* Frameworks */,
-				30F066E6230500A9009216E1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				30F066EA230500A9009216E1 /* PBXTargetDependency */,
-			);
-			name = WorktideTests;
-			productName = WorktideTests;
-			productReference = 30F066E8230500A9009216E1 /* WorktideTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		30F066F2230500A9009216E1 /* WorktideUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 30F06702230500A9009216E1 /* Build configuration list for PBXNativeTarget "WorktideUITests" */;
-			buildPhases = (
-				29BCFA730E1FD9EC6373034B /* [CP] Check Pods Manifest.lock */,
-				30F066EF230500A9009216E1 /* Sources */,
-				30F066F0230500A9009216E1 /* Frameworks */,
-				30F066F1230500A9009216E1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				30F066F5230500A9009216E1 /* PBXTargetDependency */,
-			);
-			name = WorktideUITests;
-			productName = WorktideUITests;
-			productReference = 30F066F3230500A9009216E1 /* WorktideUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -699,14 +620,6 @@
 							};
 						};
 					};
-					30F066E7230500A9009216E1 = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = 30F066D3230500A8009216E1;
-					};
-					30F066F2230500A9009216E1 = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = 30F066D3230500A8009216E1;
-					};
 				};
 			};
 			buildConfigurationList = 30F066CF230500A8009216E1 /* Build configuration list for PBXProject "Worktide" */;
@@ -723,8 +636,6 @@
 			projectRoot = "";
 			targets = (
 				30F066D3230500A8009216E1 /* Worktide */,
-				30F066E7230500A9009216E1 /* WorktideTests */,
-				30F066F2230500A9009216E1 /* WorktideUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -740,45 +651,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30F066E6230500A9009216E1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30F066F1230500A9009216E1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		29BCFA730E1FD9EC6373034B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WorktideUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		540FDA6C7135F88DBE4F2148 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -818,28 +693,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D81AE910C3FD06360400FC35 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WorktideTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F8D89E536341C8300E2D1A38 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -867,7 +720,6 @@
 				304C85A223A5A1EA00579ECF /* SpecifiedServiceModel.swift in Sources */,
 				306F14C9238338F700114039 /* ChangeServiceInformationController.swift in Sources */,
 				30DF4155240C6C5000CC5A97 /* HelperForUploadingData.swift in Sources */,
-				3043F71B23AB109800F7E309 /* TimeSelectServiceController.swift in Sources */,
 				30B9656623B5430E00C3F885 /* TimeRangeModel.swift in Sources */,
 				304E02C72368DF48004B6081 /* MainViewController.swift in Sources */,
 				3072D8D423F9D6AE00DF3650 /* IntExtension.swift in Sources */,
@@ -878,6 +730,7 @@
 				3043F72523AC0B4C00F7E309 /* Date.swift in Sources */,
 				304B440D23BD327800E56E82 /* CollectionViewCell.swift in Sources */,
 				305EB9F623AA98970005BC6F /* DaysAvailableCell.swift in Sources */,
+				30889168241A887C00889D9A /* TimeSelectServiceController.swift in Sources */,
 				300455622309006B00A66FA3 /* UIView.swift in Sources */,
 				30E319122389EA6E002FCC54 /* MainViewHeader.swift in Sources */,
 				3072D8EB23FDFFD900DF3650 /* UserScheduleModel.swift in Sources */,
@@ -888,9 +741,9 @@
 				30C765A023C2813E00CF5657 /* AboutServiceController.swift in Sources */,
 				304B9854237895FD0069FCAF /* AvailabilityModel.swift in Sources */,
 				30C765AC23C691D600CF5657 /* MapViewCell.swift in Sources */,
-				30E3191D238D84D2002FCC54 /* UserServiceController.swift in Sources */,
 				3008E42B23402AE1000CB5F4 /* UIColor.swift in Sources */,
 				30B9657123B6730D00C3F885 /* AppointmentsModel.swift in Sources */,
+				30889161241A850900889D9A /* UserServiceController.swift in Sources */,
 				30E31917238B0A20002FCC54 /* SectionTitleHeader.swift in Sources */,
 				30B9655E23B1794E00C3F885 /* ServiceCategoryModel.swift in Sources */,
 				304E02C92368ED14004B6081 /* ProfileController.swift in Sources */,
@@ -909,10 +762,11 @@
 				30C765A223C3DC0600CF5657 /* AddImagesController.swift in Sources */,
 				3072D8F12400619F00DF3650 /* HelperLoading.swift in Sources */,
 				30419B0F239ADFD300F84941 /* BrowseByCategoryCell.swift in Sources */,
+				3088916A241A8A2800889D9A /* CollectionViewHeaderCell.swift in Sources */,
 				3043F71F23AB11A000F7E309 /* TimeAvailabilityCell.swift in Sources */,
+				3088915F241A84CA00889D9A /* LoginController.swift in Sources */,
 				30B9656823B58B1B00C3F885 /* ViewAppointmentCell.swift in Sources */,
 				3072D8E123FDCC2000DF3650 /* HelperForReading.swift in Sources */,
-				304B441223BD3B8400E56E82 /* CollectionViewHeaderCell.swift in Sources */,
 				30AAAB9123D67E5500C819C8 /* GetUserLocationController.swift in Sources */,
 				30419B0B2395D99400F84941 /* EnableLocationController.swift in Sources */,
 				3041BBC02374B24100D5922B /* SupportController.swift in Sources */,
@@ -925,7 +779,6 @@
 				3012F970234C4DC400AA1C52 /* UIImageView.swift in Sources */,
 				308891162415778100889D9A /* Protocol.swift in Sources */,
 				306F14C72383369E00114039 /* ServiceModel.swift in Sources */,
-				30B9656F23B6669100C3F885 /* SelectAppointmentCell.swift in Sources */,
 				30B9656D23B664DF00C3F885 /* ViewAppointmentController.swift in Sources */,
 				30AAAB8D23D0E46800C819C8 /* AppointmentsViewController.swift in Sources */,
 				3041BBB72370EE8800D5922B /* ServiceLocation.swift in Sources */,
@@ -935,13 +788,11 @@
 				3041BB9E236E0DC100D5922B /* MyServicesCells.swift in Sources */,
 				305DCCCF23935553000E5E2B /* VerifyPhoneNumberController.swift in Sources */,
 				30C765B223CA6BBC00CF5657 /* BookingsModel.swift in Sources */,
-				30E3191F2391F45D002FCC54 /* LoginController.swift in Sources */,
-				3072D8F52401B58400DF3650 /* NotificationController.swift in Sources */,
+				3072D8F52401B58400DF3650 /* NotificationsController.swift in Sources */,
 				30E24A6A2315E4590077F263 /* UIScrollView.swift in Sources */,
 				3072D8E723FDFC8700DF3650 /* HelperForCalculating.swift in Sources */,
 				308891122410820600889D9A /* GMSCircle.swift in Sources */,
 				305EB9F423A7EF480005BC6F /* BookServicesController.swift in Sources */,
-				3072D8D823FB841400DF3650 /* ProfileImageSetupViewController.swift in Sources */,
 				30C765A823C664A300CF5657 /* ImageModel.swift in Sources */,
 				304E02872368DE34004B6081 /* SplashScreenController.swift in Sources */,
 				30C765B423CA733600CF5657 /* AvailableDaysModel.swift in Sources */,
@@ -955,7 +806,6 @@
 				3072D8F92408E71D00DF3650 /* LearnMoreViewController.swift in Sources */,
 				30C765AA23C68FDD00CF5657 /* AboutServiceCell.swift in Sources */,
 				304E02D7236B6EA8004B6081 /* CreateServiceController.swift in Sources */,
-				30B9656A23B5B62200C3F885 /* AppointmentsController.swift in Sources */,
 				3072D8D623F9E5B800DF3650 /* ServicerAppointmentsModel.swift in Sources */,
 				3043F72323AC073000F7E309 /* ScheduleModel.swift in Sources */,
 				3041BBA8236F3BE600D5922B /* SettingsOptionsModel.swift in Sources */,
@@ -971,36 +821,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30F066E4230500A9009216E1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30F066ED230500A9009216E1 /* WorktideTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30F066EF230500A9009216E1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30F066F8230500A9009216E1 /* WorktideUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		30F066EA230500A9009216E1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30F066D3230500A8009216E1 /* Worktide */;
-			targetProxy = 30F066E9230500A9009216E1 /* PBXContainerItemProxy */;
-		};
-		30F066F5230500A9009216E1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30F066D3230500A8009216E1 /* Worktide */;
-			targetProxy = 30F066F4230500A9009216E1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		30F066FA230500A9009216E1 /* Debug */ = {
@@ -1167,92 +988,6 @@
 			};
 			name = Release;
 		};
-		30F06700230500A9009216E1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A403B25D6701D81205B24697 /* Pods-WorktideTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6U5GKUBS9A;
-				INFOPLIST_FILE = WorktideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.worktide.WorktideTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Worktide.app/Worktide";
-			};
-			name = Debug;
-		};
-		30F06701230500A9009216E1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 117B1881FB5B3AE24216254D /* Pods-WorktideTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6U5GKUBS9A;
-				INFOPLIST_FILE = WorktideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.worktide.WorktideTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Worktide.app/Worktide";
-			};
-			name = Release;
-		};
-		30F06703230500A9009216E1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98B005539235A62C07F5BA6A /* Pods-WorktideUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6U5GKUBS9A;
-				INFOPLIST_FILE = WorktideUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.worktide.WorktideUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Worktide;
-			};
-			name = Debug;
-		};
-		30F06704230500A9009216E1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06E4D4D5F8379EE01C155B8A /* Pods-WorktideUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6U5GKUBS9A;
-				INFOPLIST_FILE = WorktideUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.worktide.WorktideUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Worktide;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1270,24 +1005,6 @@
 			buildConfigurations = (
 				30F066FD230500A9009216E1 /* Debug */,
 				30F066FE230500A9009216E1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		30F066FF230500A9009216E1 /* Build configuration list for PBXNativeTarget "WorktideTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				30F06700230500A9009216E1 /* Debug */,
-				30F06701230500A9009216E1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		30F06702230500A9009216E1 /* Build configuration list for PBXNativeTarget "WorktideUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				30F06703230500A9009216E1 /* Debug */,
-				30F06704230500A9009216E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

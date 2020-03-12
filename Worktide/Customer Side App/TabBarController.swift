@@ -28,7 +28,7 @@ class TabBarController:UITabBarController{
     func setupViewControllers(){
         let mainViewController = MainViewController()
         let appointmentsController = AppointmentsViewController()
-        let notificationController = NotificationController()
+        let notificationController = NotificationsController()
         let profileController = ProfileController(collectionViewLayout:UICollectionViewFlowLayout())
         //add search controller in the future
         
