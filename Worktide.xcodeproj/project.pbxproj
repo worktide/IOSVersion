@@ -14,9 +14,6 @@
 		3008E42B23402AE1000CB5F4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008E42A23402AE1000CB5F4 /* UIColor.swift */; };
 		3012F970234C4DC400AA1C52 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3012F96F234C4DC400AA1C52 /* UIImageView.swift */; };
 		3012F972234E57FB00AA1C52 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3012F971234E57FB00AA1C52 /* UIStackView.swift */; };
-		303280D6239443F40070E4D7 /* BeforeLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303280D5239443F40070E4D7 /* BeforeLoginController.swift */; };
-		303280D82394537B0070E4D7 /* UsersNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303280D72394537B0070E4D7 /* UsersNameController.swift */; };
-		30419B0B2395D99400F84941 /* EnableLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30419B0A2395D99400F84941 /* EnableLocationController.swift */; };
 		30419B0F239ADFD300F84941 /* BrowseByCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30419B0E239ADFD300F84941 /* BrowseByCategoryCell.swift */; };
 		3041BB9C236E09CA00D5922B /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041BB9B236E09CA00D5922B /* ProfileHeader.swift */; };
 		3041BB9E236E0DC100D5922B /* MyServicesCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041BB9D236E0DC100D5922B /* MyServicesCells.swift */; };
@@ -42,13 +39,11 @@
 		304C859E23A4853400579ECF /* UserServiceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304C859D23A4853400579ECF /* UserServiceHeader.swift */; };
 		304C85A023A59C6E00579ECF /* ServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304C859F23A59C6E00579ECF /* ServicesCell.swift */; };
 		304C85A223A5A1EA00579ECF /* SpecifiedServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304C85A123A5A1E900579ECF /* SpecifiedServiceModel.swift */; };
-		304E02872368DE34004B6081 /* SplashScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304E02862368DE34004B6081 /* SplashScreenController.swift */; };
 		304E02C72368DF48004B6081 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304E02C62368DF48004B6081 /* MainViewController.swift */; };
 		304E02C92368ED14004B6081 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304E02C82368ED14004B6081 /* ProfileController.swift */; };
 		304E02D1236A28E2004B6081 /* PeopleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304E02D0236A28E2004B6081 /* PeopleListCell.swift */; };
 		304E02D5236B40CD004B6081 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304E02D4236B40CD004B6081 /* ImagePickerManager.swift */; };
 		304E02D7236B6EA8004B6081 /* CreateServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304E02D6236B6EA8004B6081 /* CreateServiceController.swift */; };
-		305DCCCF23935553000E5E2B /* VerifyPhoneNumberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305DCCCE23935553000E5E2B /* VerifyPhoneNumberController.swift */; };
 		305EB9F423A7EF480005BC6F /* BookServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305EB9F323A7EF480005BC6F /* BookServicesController.swift */; };
 		305EB9F623AA98970005BC6F /* DaysAvailableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305EB9F523AA98970005BC6F /* DaysAvailableCell.swift */; };
 		305ED3DA2325E64100E5309C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305ED3D92325E64100E5309C /* UIImage.swift */; };
@@ -72,13 +67,18 @@
 		3079C6F42409EFDC00D7D612 /* CreateServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3079C6F32409EFDC00D7D612 /* CreateServiceModel.swift */; };
 		308891122410820600889D9A /* GMSCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308891112410820600889D9A /* GMSCircle.swift */; };
 		308891162415778100889D9A /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308891152415778100889D9A /* Protocol.swift */; };
-		3088915F241A84CA00889D9A /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3088915E241A84CA00889D9A /* LoginController.swift */; };
 		30889161241A850900889D9A /* UserServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30889160241A850900889D9A /* UserServiceController.swift */; };
 		30889168241A887C00889D9A /* TimeSelectServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30889167241A887C00889D9A /* TimeSelectServiceController.swift */; };
 		3088916A241A8A2800889D9A /* CollectionViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30889169241A8A2800889D9A /* CollectionViewHeaderCell.swift */; };
+		30889188241A910E00889D9A /* EnableLocationController.swift 10-46-00-537.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30889183241A910E00889D9A /* EnableLocationController.swift 10-46-00-537.swift */; };
+		30889189241A910E00889D9A /* GetUserLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30889184241A910E00889D9A /* GetUserLocationController.swift */; };
+		3088918A241A910E00889D9A /* SplashScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30889185241A910E00889D9A /* SplashScreenController.swift */; };
+		3088918C241A910E00889D9A /* VerifyPhoneNumberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30889187241A910E00889D9A /* VerifyPhoneNumberController.swift */; };
+		30889190241A918D00889D9A /* UsersNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3088918D241A918D00889D9A /* UsersNameController.swift */; };
+		30889191241A918D00889D9A /* BeforeLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3088918E241A918D00889D9A /* BeforeLoginController.swift */; };
+		30889192241A918D00889D9A /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3088918F241A918D00889D9A /* LoginController.swift */; };
 		30AAAB8D23D0E46800C819C8 /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAAB8C23D0E46800C819C8 /* AppointmentsViewController.swift */; };
 		30AAAB8F23D0E53600C819C8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAAB8E23D0E53600C819C8 /* TabBarController.swift */; };
-		30AAAB9123D67E5500C819C8 /* GetUserLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAAB9023D67E5500C819C8 /* GetUserLocationController.swift */; };
 		30AAAB9B23E60D2D00C819C8 /* ScheduleExceptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAAB9A23E60D2D00C819C8 /* ScheduleExceptionController.swift */; };
 		30B9655923AF261C00C3F885 /* ServicesByCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9655823AF261C00C3F885 /* ServicesByCategoryController.swift */; };
 		30B9655B23AF29CB00C3F885 /* ServiceDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9655A23AF29CB00C3F885 /* ServiceDetailsCell.swift */; };
@@ -124,9 +124,6 @@
 		3008E42A23402AE1000CB5F4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3012F96F234C4DC400AA1C52 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		3012F971234E57FB00AA1C52 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
-		303280D5239443F40070E4D7 /* BeforeLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeLoginController.swift; sourceTree = "<group>"; };
-		303280D72394537B0070E4D7 /* UsersNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersNameController.swift; sourceTree = "<group>"; };
-		30419B0A2395D99400F84941 /* EnableLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocationController.swift; sourceTree = "<group>"; };
 		30419B0E239ADFD300F84941 /* BrowseByCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseByCategoryCell.swift; sourceTree = "<group>"; };
 		3041BB9B236E09CA00D5922B /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		3041BB9D236E0DC100D5922B /* MyServicesCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServicesCells.swift; sourceTree = "<group>"; };
@@ -152,13 +149,11 @@
 		304C859D23A4853400579ECF /* UserServiceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceHeader.swift; sourceTree = "<group>"; };
 		304C859F23A59C6E00579ECF /* ServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCell.swift; sourceTree = "<group>"; };
 		304C85A123A5A1E900579ECF /* SpecifiedServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecifiedServiceModel.swift; sourceTree = "<group>"; };
-		304E02862368DE34004B6081 /* SplashScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenController.swift; sourceTree = "<group>"; };
 		304E02C62368DF48004B6081 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		304E02C82368ED14004B6081 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		304E02D0236A28E2004B6081 /* PeopleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListCell.swift; sourceTree = "<group>"; };
 		304E02D4236B40CD004B6081 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		304E02D6236B6EA8004B6081 /* CreateServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateServiceController.swift; sourceTree = "<group>"; };
-		305DCCCE23935553000E5E2B /* VerifyPhoneNumberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberController.swift; sourceTree = "<group>"; };
 		305EB9F323A7EF480005BC6F /* BookServicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookServicesController.swift; sourceTree = "<group>"; };
 		305EB9F523AA98970005BC6F /* DaysAvailableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysAvailableCell.swift; sourceTree = "<group>"; };
 		305ED3D92325E64100E5309C /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -182,13 +177,18 @@
 		3079C6F32409EFDC00D7D612 /* CreateServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateServiceModel.swift; sourceTree = "<group>"; };
 		308891112410820600889D9A /* GMSCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSCircle.swift; sourceTree = "<group>"; };
 		308891152415778100889D9A /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
-		3088915E241A84CA00889D9A /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		30889160241A850900889D9A /* UserServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceController.swift; sourceTree = "<group>"; };
 		30889167241A887C00889D9A /* TimeSelectServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectServiceController.swift; sourceTree = "<group>"; };
 		30889169241A8A2800889D9A /* CollectionViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHeaderCell.swift; sourceTree = "<group>"; };
+		30889183241A910E00889D9A /* EnableLocationController.swift 10-46-00-537.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EnableLocationController.swift 10-46-00-537.swift"; path = "Worktide/InitialControllers/EnableLocationController.swift 10-46-00-537.swift"; sourceTree = SOURCE_ROOT; };
+		30889184241A910E00889D9A /* GetUserLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetUserLocationController.swift; path = Worktide/InitialControllers/GetUserLocationController.swift; sourceTree = SOURCE_ROOT; };
+		30889185241A910E00889D9A /* SplashScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashScreenController.swift; path = Worktide/InitialControllers/SplashScreenController.swift; sourceTree = SOURCE_ROOT; };
+		30889187241A910E00889D9A /* VerifyPhoneNumberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerifyPhoneNumberController.swift; path = Worktide/InitialControllers/VerifyPhoneNumberController.swift; sourceTree = SOURCE_ROOT; };
+		3088918D241A918D00889D9A /* UsersNameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsersNameController.swift; path = Worktide/InitialControllers/UsersNameController.swift; sourceTree = SOURCE_ROOT; };
+		3088918E241A918D00889D9A /* BeforeLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeforeLoginController.swift; path = Worktide/InitialControllers/BeforeLoginController.swift; sourceTree = SOURCE_ROOT; };
+		3088918F241A918D00889D9A /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = Worktide/InitialControllers/LoginController.swift; sourceTree = SOURCE_ROOT; };
 		30AAAB8C23D0E46800C819C8 /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
 		30AAAB8E23D0E53600C819C8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		30AAAB9023D67E5500C819C8 /* GetUserLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLocationController.swift; sourceTree = "<group>"; };
 		30AAAB9A23E60D2D00C819C8 /* ScheduleExceptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleExceptionController.swift; sourceTree = "<group>"; };
 		30B9655823AF261C00C3F885 /* ServicesByCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesByCategoryController.swift; sourceTree = "<group>"; };
 		30B9655A23AF29CB00C3F885 /* ServiceDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailsCell.swift; sourceTree = "<group>"; };
@@ -350,13 +350,13 @@
 		305DCCCD2393551B000E5E2B /* InitialControllers */ = {
 			isa = PBXGroup;
 			children = (
-				30419B0A2395D99400F84941 /* EnableLocationController.swift */,
-				304E02862368DE34004B6081 /* SplashScreenController.swift */,
-				303280D5239443F40070E4D7 /* BeforeLoginController.swift */,
-				3088915E241A84CA00889D9A /* LoginController.swift */,
-				305DCCCE23935553000E5E2B /* VerifyPhoneNumberController.swift */,
-				303280D72394537B0070E4D7 /* UsersNameController.swift */,
-				30AAAB9023D67E5500C819C8 /* GetUserLocationController.swift */,
+				30889185241A910E00889D9A /* SplashScreenController.swift */,
+				3088918E241A918D00889D9A /* BeforeLoginController.swift */,
+				3088918F241A918D00889D9A /* LoginController.swift */,
+				30889187241A910E00889D9A /* VerifyPhoneNumberController.swift */,
+				3088918D241A918D00889D9A /* UsersNameController.swift */,
+				30889184241A910E00889D9A /* GetUserLocationController.swift */,
+				30889183241A910E00889D9A /* EnableLocationController.swift 10-46-00-537.swift */,
 			);
 			name = InitialControllers;
 			path = ViewControllers/InitialControllers;
@@ -718,12 +718,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				304C85A223A5A1EA00579ECF /* SpecifiedServiceModel.swift in Sources */,
+				30889189241A910E00889D9A /* GetUserLocationController.swift in Sources */,
 				306F14C9238338F700114039 /* ChangeServiceInformationController.swift in Sources */,
 				30DF4155240C6C5000CC5A97 /* HelperForUploadingData.swift in Sources */,
 				30B9656623B5430E00C3F885 /* TimeRangeModel.swift in Sources */,
 				304E02C72368DF48004B6081 /* MainViewController.swift in Sources */,
 				3072D8D423F9D6AE00DF3650 /* IntExtension.swift in Sources */,
 				30AAAB8F23D0E53600C819C8 /* TabBarController.swift in Sources */,
+				3088918C241A910E00889D9A /* VerifyPhoneNumberController.swift in Sources */,
 				304E02D5236B40CD004B6081 /* ImagePickerManager.swift in Sources */,
 				30B9655923AF261C00C3F885 /* ServicesByCategoryController.swift in Sources */,
 				304B9850237717C40069FCAF /* DaysAvailabilityController.swift in Sources */,
@@ -741,6 +743,7 @@
 				30C765A023C2813E00CF5657 /* AboutServiceController.swift in Sources */,
 				304B9854237895FD0069FCAF /* AvailabilityModel.swift in Sources */,
 				30C765AC23C691D600CF5657 /* MapViewCell.swift in Sources */,
+				30889192241A918D00889D9A /* LoginController.swift in Sources */,
 				3008E42B23402AE1000CB5F4 /* UIColor.swift in Sources */,
 				30B9657123B6730D00C3F885 /* AppointmentsModel.swift in Sources */,
 				30889161241A850900889D9A /* UserServiceController.swift in Sources */,
@@ -750,8 +753,8 @@
 				3041BBBB237475A500D5922B /* CompletedController.swift in Sources */,
 				3041BBA4236F333A00D5922B /* AccountSettingsHeader.swift in Sources */,
 				304E02D1236A28E2004B6081 /* PeopleListCell.swift in Sources */,
+				30889190241A918D00889D9A /* UsersNameController.swift in Sources */,
 				304B441423BD479500E56E82 /* CategoryCollectionCell.swift in Sources */,
-				303280D6239443F40070E4D7 /* BeforeLoginController.swift in Sources */,
 				30C765A623C58B9600CF5657 /* AddImagesCell.swift in Sources */,
 				30C765A423C58A5F00CF5657 /* ImagesCell.swift in Sources */,
 				3041BBAD236F642300D5922B /* NameServiceController.swift in Sources */,
@@ -764,11 +767,8 @@
 				30419B0F239ADFD300F84941 /* BrowseByCategoryCell.swift in Sources */,
 				3088916A241A8A2800889D9A /* CollectionViewHeaderCell.swift in Sources */,
 				3043F71F23AB11A000F7E309 /* TimeAvailabilityCell.swift in Sources */,
-				3088915F241A84CA00889D9A /* LoginController.swift in Sources */,
 				30B9656823B58B1B00C3F885 /* ViewAppointmentCell.swift in Sources */,
 				3072D8E123FDCC2000DF3650 /* HelperForReading.swift in Sources */,
-				30AAAB9123D67E5500C819C8 /* GetUserLocationController.swift in Sources */,
-				30419B0B2395D99400F84941 /* EnableLocationController.swift in Sources */,
 				3041BBC02374B24100D5922B /* SupportController.swift in Sources */,
 				3041BBA0236E0EBC00D5922B /* AccountSettingsCell.swift in Sources */,
 				3072D8E323FDCDB600DF3650 /* HelperViewTransitions.swift in Sources */,
@@ -776,9 +776,11 @@
 				30DF4157240E074400CC5A97 /* ReviewNewServiceController.swift in Sources */,
 				3079C6F42409EFDC00D7D612 /* CreateServiceModel.swift in Sources */,
 				3041BBB3236F693900D5922B /* JobCategoryModel.swift in Sources */,
+				30889191241A918D00889D9A /* BeforeLoginController.swift in Sources */,
 				3012F970234C4DC400AA1C52 /* UIImageView.swift in Sources */,
 				308891162415778100889D9A /* Protocol.swift in Sources */,
 				306F14C72383369E00114039 /* ServiceModel.swift in Sources */,
+				30889188241A910E00889D9A /* EnableLocationController.swift 10-46-00-537.swift in Sources */,
 				30B9656D23B664DF00C3F885 /* ViewAppointmentController.swift in Sources */,
 				30AAAB8D23D0E46800C819C8 /* AppointmentsViewController.swift in Sources */,
 				3041BBB72370EE8800D5922B /* ServiceLocation.swift in Sources */,
@@ -786,7 +788,6 @@
 				3072D8F32401117000DF3650 /* RecommendedServiceModel.swift in Sources */,
 				3043F72123ABEF5000F7E309 /* ConfirmAppointmentController.swift in Sources */,
 				3041BB9E236E0DC100D5922B /* MyServicesCells.swift in Sources */,
-				305DCCCF23935553000E5E2B /* VerifyPhoneNumberController.swift in Sources */,
 				30C765B223CA6BBC00CF5657 /* BookingsModel.swift in Sources */,
 				3072D8F52401B58400DF3650 /* NotificationsController.swift in Sources */,
 				30E24A6A2315E4590077F263 /* UIScrollView.swift in Sources */,
@@ -794,13 +795,13 @@
 				308891122410820600889D9A /* GMSCircle.swift in Sources */,
 				305EB9F423A7EF480005BC6F /* BookServicesController.swift in Sources */,
 				30C765A823C664A300CF5657 /* ImageModel.swift in Sources */,
-				304E02872368DE34004B6081 /* SplashScreenController.swift in Sources */,
 				30C765B423CA733600CF5657 /* AvailableDaysModel.swift in Sources */,
 				3007FE4923283874001658BA /* MSMutableStringAttribute.swift in Sources */,
 				304B98522377BA570069FCAF /* UICollectionView.swift in Sources */,
 				30C7659D23C19F7C00CF5657 /* WhatsNewViewController.swift in Sources */,
 				30AAAB9B23E60D2D00C819C8 /* ScheduleExceptionController.swift in Sources */,
 				3012F972234E57FB00AA1C52 /* UIStackView.swift in Sources */,
+				3088918A241A910E00889D9A /* SplashScreenController.swift in Sources */,
 				30BF1A3E23A6C28800F91290 /* CLLocationCoordiante2DExtension.swift in Sources */,
 				30C765AE23C692F900CF5657 /* TitleHeaders.swift in Sources */,
 				3072D8F92408E71D00DF3650 /* LearnMoreViewController.swift in Sources */,
@@ -817,7 +818,6 @@
 				30F066D8230500A8009216E1 /* AppDelegate.swift in Sources */,
 				304C859E23A4853400579ECF /* UserServiceHeader.swift in Sources */,
 				3041BB9C236E09CA00D5922B /* ProfileHeader.swift in Sources */,
-				303280D82394537B0070E4D7 /* UsersNameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
